@@ -1,0 +1,44 @@
+<html>
+    <script>
+        let msg = "Hello  "+ (1+ 2);
+        console.log('msg is ',msg);
+
+        let name = "John";
+        console.log('name is ',name);
+        console.log('name length is ',name.length);
+
+        let str = "Hello World";
+        console.log('str is ',str);
+
+        console.log('substring(0,3) ',str.substring(0,3));
+        console.log('substring(3,str.length) ',str.substring(3,str.length));
+        console.log('substring(3) ',str.substring(3));
+        console.log('substring(-3) ',str.substring(-3));
+
+        console.log('slice(-3) ',str.slice(-3));
+        console.log('slice(-6,str.length) ',str.slice(-6,str.length));
+
+        console.log('indexOf("o") ',str.indexOf("o"));
+        console.log('lastIndexOf("o") ',str.lastIndexOf("o"));
+
+        console.log('indexOf("an") ',str.indexOf("an"));
+
+        console.log('includes ("World") ',str.includes("World"));
+        console.log('includes ("world") ',str.includes("world"));
+
+        let items = "Apple,Banana,Orange";
+        let arr = items.split(",");
+        console.log('arr is ',arr);
+
+        console.log('starWith Hell ',str.startsWith("Hell"));
+        console.log('endWith ',str.endsWith("ld"));
+
+        let str2 = str.replace("World","John");
+        console.log('str is ',str);
+        console.log('str2 is ',str2);
+
+        console.log('toUpperCase ',str.toUpperCase());
+        console.log('toLowerCase ',str.toLowerCase());
+
+    </script>
+</html>

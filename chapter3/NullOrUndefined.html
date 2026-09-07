@@ -1,0 +1,30 @@
+<html>
+    <script>
+        let a ;
+        console.log('a ',a);
+        
+        let obj = {
+            name : "John",
+        }
+        console.log('obj.age ',obj.age);
+        console.log('typeof a ',typeof a);
+
+        a = null;
+        console.log('a ',a);
+        console.log('typeof a ',typeof a);
+
+        let symname = Symbol("propname");
+        let symname2 = Symbol("propname");
+        console.log('symname ',symname);
+        console.log('typeof symname ',typeof symname);
+
+        console.log('symname2 ',symname2);
+        console.log('typeof symname2 ',typeof symname2);
+
+        let obj2 = {
+            [symname] : "John",
+            [symname2] : "Wick",
+        }
+        console.log('obj2 ',obj2);
+    </script>
+</html>

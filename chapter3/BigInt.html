@@ -1,0 +1,16 @@
+<html>
+    <script>
+        console.log('Number max ',Number.MAX_VALUE);
+        let string = "1" + "0".repeat(400); 
+        let num = Number(string);
+        console.log('Num ',num);
+
+        let bigInt = BigInt(string);
+        console.log('BigInt ',bigInt);
+        bigInt = bigInt + 1n;
+        console.log('BigInt + 1 ',bigInt);
+
+        bigInt = bigInt + 2n;
+        console.log('BigInt + 2 ',bigInt);
+    </script>
+</html>

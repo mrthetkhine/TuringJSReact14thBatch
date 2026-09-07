@@ -1,0 +1,55 @@
+<html>
+    <script>
+        let obj = {
+            valueOf()
+            {
+                console.log('valueOf called');
+                return '';
+            },
+            toString()
+            {
+                console.log('toString called');
+                return 10;
+            }
+        };
+
+        console.log('obj.toString() ',obj.toString());
+        console.log('obj ',''+obj);
+
+         /*
+            valueOf called
+            if primitive
+                20 
+        */
+        console.log('+obj ',+obj);
+        console.log('!!obj ',!!obj);
+       
+        let obj2 = {
+            valueOf()
+            {
+                console.log('valueOf called');
+                return {};
+            },
+            toString()
+            {
+                console.log('toString called');
+                return 10;
+            }
+        };
+        console.log('+obj2 ',+obj2);
+
+        let obj3 = {
+            valueOf()
+            {
+                console.log('valueOf called');
+                return {};
+            },
+            toString()
+            {
+                console.log('toString called');
+                return {};
+            }
+        };
+        //console.log('+obj3 ',+obj3);
+    </script>
+</html>

@@ -1,0 +1,32 @@
+<html>
+    <script>
+        let arr = [10,20,30];
+        console.log('arr ',arr);
+        
+        console.log('a[0] ',arr[0]);
+        console.log('a[1] ',arr[1]);
+        /*
+        let a = arr[0];
+        let b = arr[1];
+        console.log('a ',a);
+        console.log('b ',b);
+        */
+
+        let [c,d] = arr;
+        console.log('c ',c);
+        console.log('d ',d);
+
+        let a = 10;
+        let b = 20;
+        /*
+        let temp = b;
+        b = a;
+        a = temp;
+        */ 
+        [a,b] = [b,a];
+        console.log('a ',a);
+        console.log('b ',b);
+
+
+    </script>
+</html>
