@@ -1,0 +1,38 @@
+<html>
+    <script>
+        
+        let a = 10;
+        console.log("'2'+a ", '2'+a);
+        console.log("'2'+a+1 ", '2'+a+1);
+        console.log("1+a+'2' ", 1+a+'2');
+
+        console.log('false + 1 ', false + 1);
+        console.log('"true" + 1 ', 'true' + 1);
+        console.log('"true"* 1 ', 'true' * 1);
+        console.log('""* 1 ', '' * 1);
+        console.log('undefined * 1 ', undefined * 1);
+        console.log('null * 1 ', null * 1);
+
+        let b = -5;
+        console.log('+b ',+b);
+        console.log('-b ',-b);
+
+        let c = ++a;//11
+        console.log('c ',c);
+        console.log('a ',a);
+
+        c = a++;
+        console.log('c ',c);
+        console.log('a ',a);
+
+        let obj = {
+            valueOf()
+            {
+                return "100";
+            }
+        }
+        console.log('obj++ ',obj ++);
+        console.log('obj ',obj);
+
+    </script>
+</html>

@@ -1,0 +1,34 @@
+<html>
+    <script>
+        
+        let arr =[10,20];
+
+        let fun = function(){
+            console.log('Hello');
+        }
+
+        console.log('fun ',fun());
+
+        let obj = {
+            name: "Jhon",
+            address1: {
+                city: "New York",
+                state: "NY"
+            }
+        };
+        console.log('Name ',obj.name);
+        console.log('name ',obj['name']);
+
+        console.log('city ',obj.address?.city);
+        console.log('city ',obj.address1?.['city']);
+
+        let func2 ;
+        let func3 = fun;
+        //func2();
+        console.log(func2?.());
+        func3?.();
+
+        let date = new Date();
+        console.log('date ',date);
+    </script>
+</html>

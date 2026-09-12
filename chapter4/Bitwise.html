@@ -1,0 +1,49 @@
+<html>
+    <script>
+        ///000000000000010
+        //1111111111111101
+        let a = 2;//10
+        let b = 3;//11
+        console.log('a ',a.toString(2));
+        console.log('b ',b.toString(2));
+        /*
+        &
+        0 0 = 0
+        0 1 = 0
+        1 0 = 0
+        1 1 = 1
+        */
+       console.log('a & b ',(a &b).toString(2));
+
+       /*
+        |
+        0 0 = 0
+        0 1 = 1
+        1 0 = 1
+        1 1 = 1
+        */
+       console.log('a | b ',(a | b).toString(2));
+
+        /*
+        ^
+        0 0 = 0
+        0 1 = 1
+        1 0 = 1
+        1 1 = 0
+        */
+       console.log('a ^ b ',(a ^ b).toString(2));
+
+        /*
+        ~
+        0  = 1
+        1  = 0
+        */
+        console.log('~a ',(~a).toString(2));
+        //console.log('~a ',(~a).toBinaryString());
+      
+        console.log('a >>1 ',(a>>1).toString(2));
+        console.log('a <<1 ',(a<<1).toString(2));
+        console.log('8 >>2 ',(8>>2));//8/ 2**2
+        console.log('a <<1 ',(a<<1));
+    </script>
+</html>

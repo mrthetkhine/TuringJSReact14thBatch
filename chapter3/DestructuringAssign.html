@@ -27,6 +27,30 @@
         console.log('a ',a);
         console.log('b ',b);
 
+        let arr2 =[10,20,30,40];
 
+        let[e,f,...g] = arr2;
+        console.log('e ',e);
+        console.log('f ',f);
+        console.log('g ',g);
+
+        let [first, ...rest] = "Hello";
+        console.log('first ',first);
+        console.log('rest ',rest);
+
+        let obj = {
+            name :"Jhon",
+            age : 34,
+        }
+        /*
+        let name = obj.name;
+        let age = obj.age;
+        */
+       let {name,age} = obj;
+       console.log('name ',name);
+       console.log('age ',age); 
+
+       let {name:username} = obj;
+       console.log('username ',username);
     </script>
 </html>
