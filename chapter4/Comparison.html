@@ -1,0 +1,26 @@
+<html>
+    <script>
+        let obj = {
+            valueOf()
+            {
+                console.log('valueOf');
+                return 10;
+            }
+        };
+        console.log('obj >= 5 ', obj >= 5);
+        /*
+        obj valueOf
+        10 >= "5"
+        10 >= 5
+        */
+        console.log('obj >= 5 ', obj >= "5");
+        /*
+        true> 0
+        1> 0
+        */
+        console.log('true > 0', true > 0);
+        console.log('"apple"> "banana" ', "apple" > "banana");
+
+        console.log(' "true" > 0', "true" > 0);
+    </script>
+</html>

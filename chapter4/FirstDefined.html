@@ -1,0 +1,19 @@
+<html>
+    <script>
+        function drawCircle({x,y,radius})
+        {
+            //radius default = 10;
+            console.log('radius ',radius);
+            let r = radius ?? 10;
+            console.log('Draw Circle x ',x,' y ',y);
+            console.log('Radius ',r);
+
+        }
+
+        drawCircle({
+            x: 10,
+            y : 20,
+            radius:null,
+        });
+    </script>
+</html>

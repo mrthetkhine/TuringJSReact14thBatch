@@ -1,0 +1,59 @@
+<html>
+    <script>
+        /*
+        AND 
+        0 0 = 0
+        0 1 = 0
+        
+        1 0 = 0
+        1 1 = 1
+
+        if LHS falsy 
+            return LHS
+        else LHS truthy
+            return RHS
+        */
+
+        console.log(' false && false ', false && false);
+        console.log('false & true ',false && true);
+        console.log('true & false ',true && false);
+        console.log('true && true ', true && true);
+
+        console.log('');
+        console.log('null && false ',null && false);
+        console.log('undefined && false ',undefined && false);
+
+        console.log('');
+        console.log('true && {} ',true && {});
+        console.log(' "Hello" && {} ',"hello" && {});
+        console.log(' 123 && "Hello" ',123 && "Hello");
+
+        /*
+        OR 
+        0 0 = 0
+        0 1 = 1
+        
+        1 0 = 1
+        1 1 = 1
+
+        if LHS falsy 
+            return RHS
+        else if LHS truthy
+            return LHS
+        */
+       console.log();
+       console.log('false || false ', false || false);
+       console.log('false || true ', false || true);
+       console.log('true || false ', true || false);
+       console.log('true || true ', true || true);
+
+       console.log();
+       console.log('null || false ',null || false);
+       console.log('undefined || "false" ',undefined || "false");
+
+       console.log('{} || false ', {} || false);
+
+       console.log('!{} ',!{});
+       console.log('!"" ', !"");
+    </script>
+</html>

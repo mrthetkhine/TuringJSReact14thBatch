@@ -1,0 +1,39 @@
+<html>
+    <body>
+        <a href="javascript:void(0);" onclick="hello()">Click Me</a>
+
+
+    </body>
+    <script>
+        let a = "hello";
+        function hello()
+        {
+            console.log('Hello');
+            return 100;
+        }
+        console.log('typeof 10 ',typeof 10);
+        console.log('typeof a ',typeof a);
+        console.log('typeof false ',typeof false);
+        console.log('typeof hello ',typeof hello);
+        console.log('typeof null ',typeof null);
+        console.log('typeof undefined ',typeof undefined);
+        console.log('typeof NaN ',typeof NaN);
+        console.log('typeof {} ',typeof {});
+
+        let obj ={
+            name :'Jhon',
+            address: 'Somewhere'
+        }
+        console.log('obj ',obj);
+        delete obj.address;
+
+        console.log('obj ',obj);
+
+        function getSomething()
+        {
+            return 100;
+        }
+        a = void(getSomething());
+        console.log('a ',a);
+    </script>
+</html>

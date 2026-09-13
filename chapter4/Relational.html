@@ -1,6 +1,50 @@
 <html>
     <script>
-        console.log(" '2'== 2 ",'2'==2);
-        console.log(" '2'=== 2 ",'2'===2);//no type conversion
+        console.log(" '2'== 2 ",'2'==2);//loosely equal
+        console.log(" '2'=== 2 ",'2'===2);//strict equal, no type conversion
+
+        console.log('NaN === NaN ',NaN === NaN);
+        console.log('0 === -0 ',0 === -0);
+
+        console.log('2==2 ',2==2);
+        console.log('null == undefined ',null == undefined);
+
+        console.log(' "2" ==2 ', "2"== 2);
+        console.log(' "" == 0 ', "" == 0);
+
+        console.log('true == 1 ', true == 1);
+        /*
+        true == "1"
+        1  == "1"
+        1  == 1
+        */
+        console.log('true == "1" ', true == "1");
+
+        /*
+        false == ""
+        0  == ""
+        0  == 0
+        */
+        console.log('false == "" ', false == "");
+
+        let obj = {
+            valueOf()
+            {
+                console.log('valueOf');
+                return 10;
+            }
+        }
+        console.log('obj == 10 ', obj == 10);
+        /*
+        obj valueOf
+        10 == "10"
+        10 == 10
+        */
+        console.log('obj == "10" ', obj == "10");
+        console.log('obj == true ', obj == true);
+
+        console.log('0 == null ', 0 == null);
+        console.log('0 == flase ', 0 == false);
+        console.log('0 == undefined ', 0 == undefined);
     </script>
 </html>
