@@ -1,0 +1,31 @@
+<html>
+    
+    <script>
+
+    /*
+        let count = 0;
+        do
+        {
+            console.log('Hello');
+        }while( count > 5);
+        console.log('end');
+    */ 
+    let num = parseInt(Math.random()*10+1);
+    //console.log('num ',num);
+    
+    let input;
+    do 
+    {
+        input  = +window.prompt('Enter guess num');
+        if(input > num)
+        {
+            console.log('too high');
+        }
+        else if(input < num)
+        {
+            console.log('too low');
+        }
+    }while(num != input);
+    console.log('You won');
+    </script>
+</html>

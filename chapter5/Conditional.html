@@ -1,0 +1,33 @@
+<html>
+    
+    <script>
+
+        if(123)
+        {
+            console.log('then');
+        }  
+        else
+        {
+            console.log('else');
+        }
+        let myan,eng,math;
+        myan = +prompt("Enter myanmar");
+        eng = +prompt("Enter eng");
+        math = +prompt("Enter math");
+    
+        console.log('Myan ',myan, ' Eng ',eng, ' Math ',math);
+
+        if(myan >= 40 && eng >= 40 && math >= 40)
+        {
+            console.log('Pass');
+            if(myan >= 75 || eng >= 75 || math >=75)
+            {
+                console.log('Distinction');
+            }
+        }
+        else
+        {
+            console.log('Fail');
+        }
+    </script>
+</html>
