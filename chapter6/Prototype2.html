@@ -1,0 +1,45 @@
+<html>
+    
+    <script>
+        let parent ={
+            items: [100]
+        };
+        let obj = Object.create(parent);
+        obj.items.push(200);
+
+        console.log('Obj ',obj.items);
+        console.log('Parent items ',parent.items);
+
+        obj.items = [400,500];
+        console.log('Obj ',obj.items);
+        console.log('Parent items ',parent.items);
+
+        obj = {
+            name : "Jhon",
+            age : 35
+        }
+        console.log('obj.name ',obj.name);
+        console.log('obj["age"] ',obj['age']);
+
+        let propName = "name";
+        console.log('Obj[name ] ',obj[propName]);
+
+        obj.address = "Somewhere";
+        console.log('Obj ',obj);
+        
+        //console.log('Obj.address.city ',obj.address?.city);
+        delete obj.address;
+        console.log('delete ',obj);
+
+        console.log('"name" in obj ','name' in obj);
+        console.log('"address" in obj ','address' in obj);
+        console.log('"toString" in obj ','toString' in obj);
+
+        console.log('name ownProperty ',obj.hasOwnProperty('name'));
+        console.log('address ownProperty ',obj.hasOwnProperty('address'));
+        console.log('toString ownProperty ',obj.hasOwnProperty('toString'));
+
+        console.log('name propertyIsEnumerable ',obj.propertyIsEnumerable('name'));
+        console.log('toString propertyIsEnumerable ',obj.propertyIsEnumerable('toString'));
+    </script>
+</html>

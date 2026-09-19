@@ -1,0 +1,42 @@
+<html>
+    
+    <script>
+        //"use strict"
+        let obj = {
+            name: "Jhon",
+            age : 35,
+            address:'',
+            name:"Smith"
+        }
+        //top = 100;
+        //console.log('top ==100 ',top==100);
+        /*
+        data = 3;
+        console.log('data ',data);
+        */
+        function hello()
+        {
+            console.log('arguments ',arguments);
+            console.log('caller ',arguments.caller);
+            console.log('callee ',arguments.callee);
+            console.log('hello this ',this);
+        } 
+        hello('morning','afternoon');
+        /*
+        with(obj)
+        {
+            name = "Smith";
+            address = "Somewhere";
+            console.log('name ',name);
+        }
+            */
+        console.log('obj ',obj);
+
+        eval("var item=10;");
+        //console.log('item ',item);
+
+        //delete top;
+        console.log('ok');
+        //var eval;
+    </script>
+</html>

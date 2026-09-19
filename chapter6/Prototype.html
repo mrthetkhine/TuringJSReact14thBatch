@@ -1,0 +1,27 @@
+<html>
+    
+    <script>
+        let parent ={
+            x: 100
+        };
+        let obj = Object.create(parent);
+        obj.y = 200;
+        console.log('Obj ',obj);
+
+        console.log('obj.y ',obj.y );
+        console.log('obj.x ',obj.x);
+        console.log('obj.x1 ',obj.x1);
+
+        let obj2 = Object.create(parent);
+        parent.x = 50;
+
+        console.log('Obj1.x ',obj.x);
+        console.log('Obj2.x ',obj2.x);
+
+        obj.x = 300;
+        console.log('Obj ',obj);
+        console.log('Parent x ',parent.x);//50
+        console.log('Obj1.x ',obj.x);//300
+        console.log('Obj2.x ',obj2.x);//50
+    </script>
+</html>

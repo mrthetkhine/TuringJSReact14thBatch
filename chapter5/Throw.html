@@ -1,0 +1,32 @@
+<html>
+    
+    <script>
+
+        function div(a,b)
+        {
+            if(isNaN(a) || isNaN(b))
+            {
+                throw new Error('a or b is NaN ');
+            }
+            return a/b;
+        }
+        console.log('start');
+        console.log('div(10,0) ',div(10,0));
+
+        try
+        {
+            let result = div(10,NaN );
+            console.log('Result ',result);
+        }
+        catch(err)
+        {
+            console.log('Error ',err);
+        }
+        finally
+        {
+            console.log('finally always execute');
+        }
+        console.log('end ');
+        
+    </script>
+</html>

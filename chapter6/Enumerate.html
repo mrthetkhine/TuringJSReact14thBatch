@@ -1,0 +1,21 @@
+<html>
+    
+    <script>
+        
+
+        let parent = {
+            name : "Jhon",
+            age : 35
+        }
+        let obj = Object.create(parent);
+        obj.address = "Some";
+        for(let prop in obj)
+        {
+            if(obj.hasOwnProperty(prop))
+            {
+                console.log('Prop ',prop ,' own property ');
+            }
+            console.log('Prop ',prop, ' value ',obj[prop]);
+        }
+    </script>
+</html>

@@ -1,0 +1,27 @@
+<html>
+    
+    <script>
+
+        function process(n)
+        {
+            console.log('start process ',n);
+            if(n==0)
+            {
+                return;
+            }
+            console.log('end');
+        }
+        process(3);
+        console.log('back to main');
+        process(0);
+        console.log('back to main2');
+
+        function add(a,b)
+        {
+            console.log('a ',a, ' b ',b);
+            return a + b;
+        }
+        let value = add(2,3);
+        console.log('value ',value);
+    </script>
+</html>
