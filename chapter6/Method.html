@@ -1,0 +1,44 @@
+<html>
+    
+    <script>
+        
+        let item = {
+            name :'Apple',
+            price : 10,
+            qty : 2,
+            toString()
+            {
+                return `Item name ${this.name} price ${this.price} qty ${this.qty} total ${this.price*this.qty}`
+            }
+        }
+        console.log('item ', item.toString());
+
+        let user= {
+            name : "Jhon",
+            age : 35,
+            password: 'secret',
+            toJSON()
+            {
+                console.log('toJSON');
+                return {
+                    username: this.name,
+                    age:this.age
+                }
+            }
+        }
+        let str = JSON.stringify(user);
+        console.log('str ',str);
+        
+        let age = 50;
+        let obj = {
+            name: "Jhon",
+            age ,
+            
+        }
+        console.log('Obj ',obj);
+
+        let name = "address";
+        obj[name] = "YGN";
+        console.log('Obj ',obj);
+    </script>
+</html>

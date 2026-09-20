@@ -1,0 +1,31 @@
+<html>
+    
+    <script>
+        
+        
+        let obj = {
+            name: "Jhon",
+            age :45,
+            items:[100,200]
+        }
+        let another = {
+            address: "Somewhere",
+            age: 30,
+        }
+        let obj2 = {...obj, ...another};
+        console.log('obj2 ',obj2);
+
+        //shallow clone
+        let obj3 ={ ...obj};//obj3.items = obj.items;
+        console.log('obj3 ',obj3);
+        
+        obj3.items.push(300);
+        console.log('obj3 ',obj3);
+        console.log('obj ',obj);
+
+        let obj4 = JSON.parse(JSON.stringify(obj));
+        obj4.items.push(400);
+        console.log('obj ',obj);
+        console.log('obj4 ',obj4);
+    </script>
+</html>

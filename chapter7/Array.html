@@ -1,0 +1,24 @@
+<html>
+    
+    <script>
+        let arr = [10,20,30,40];
+        console.log('arr length ',arr.length);
+        console.log('arr [3] ',arr[3]);
+
+        arr[3] ++;
+        console.log('arr ',arr);
+
+        arr[0] = 100;
+        console.log('arr ',arr);
+
+        let arr2 = [...arr,60,70];
+        console.log('arr2 ',arr2);
+
+        let arr3 = [...arr];
+        console.log('arr3 ',arr3);
+        arr3[0] = 200;
+
+        console.log('arr3[0] ',arr3[0]);
+        console.log('arr[0] ',arr[0]);
+    </script>
+</html>

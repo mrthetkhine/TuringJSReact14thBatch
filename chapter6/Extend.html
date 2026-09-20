@@ -1,0 +1,42 @@
+<html>
+    
+    <script>
+        
+        let target = {
+            x : 100,
+        }
+        let source = {
+            y : 200,
+            data :500
+        };
+        for(let key of Object.keys(source))
+        {
+            target[key] = source[key];
+        }
+        console.log('target ',target);
+        console.log('soure ',source);
+
+        let a = {
+            first: 'First'
+        }
+        let b = {
+            second: 'Second'
+        }
+        let c= Object.assign(a,b);
+        console.log('a ',a);
+        console.log('b ',b);
+        console.log('c ',c);
+
+        let d = {
+            x : 100,
+            a : 20
+        };
+        let e = {
+            y : 200,
+            x :300
+        };
+        let z = {...d, ... e};
+        console.log('d ',d);
+        console.log('z ',z);
+    </script>
+</html>

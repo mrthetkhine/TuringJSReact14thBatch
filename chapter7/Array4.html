@@ -1,0 +1,27 @@
+<html>
+    
+    <script>
+        let arr = [10,20];
+        arr.push(30,40);
+        console.log('arr ',arr);
+
+        console.log('arr.pop ',arr.pop());
+        console.log('arr ',arr);
+
+        delete arr[0];
+        console.log('arr ',arr);
+
+        for(const item of arr)
+        {
+            console.log('item ',item);
+        }
+        console.log('entries ',arr.entries());
+
+        for(const [key,value] of arr.entries())
+        {
+            console.log('key ',key, ' value ',value);
+            arr[key]=value *2;
+        }
+        console.log('arr ',arr);
+    </script>
+</html>

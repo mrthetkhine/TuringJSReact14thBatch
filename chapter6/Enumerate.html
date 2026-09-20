@@ -2,10 +2,11 @@
     
     <script>
         
-
+        let sym= Symbol('some_name');
         let parent = {
             name : "Jhon",
-            age : 35
+            age : 35,
+            [sym]:"some_value"
         }
         let obj = Object.create(parent);
         obj.address = "Some";
@@ -17,5 +18,8 @@
             }
             console.log('Prop ',prop, ' value ',obj[prop]);
         }
+        console.log('keys ',Object.keys(parent));
+        console.log('getOwnPropertyNames ',Object.getOwnPropertyNames(parent));
+        console.log('getOwnPropertySymbols ',Object.getOwnPropertySymbols(parent));
     </script>
 </html>
