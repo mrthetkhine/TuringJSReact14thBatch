@@ -1,0 +1,33 @@
+<html>
+    
+    <script>
+        let arr = [10,20,30,40];
+        
+        arr.forEach(function(item,index, a){
+            console.log('Item ',item,' index ',index, ' array ',a);
+        });
+        /*
+        let arr0 = [1,2,3,4];
+        let arr1 = [5,6,7,8];
+        let arr2 = [9,10,11,12];
+        */ 
+        let matrix = [
+            [1,2,3,4],
+            [5,6,7,8],
+            [9,10,11,12]
+        ];
+        console.log('Matrix ',matrix);
+
+        console.log('matrix[0] ',matrix[0]);
+        console.log('matrix[0][2] ',matrix[0][2]);
+
+        for(let i=0;i< matrix.length;i++)
+        {
+            console.log('matrix ',matrix[i]);
+            for(let j=0;j< matrix[i].length;j++)
+            {
+                console.log(`matrix ${i} ${j}`,matrix[i][j]);
+            }
+        }
+    </script>
+</html>

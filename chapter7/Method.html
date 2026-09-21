@@ -1,0 +1,42 @@
+<html>
+    
+    <script>
+        let arr = [1,2,3,4,5];
+        
+        /*
+            function (item)
+            {
+                console.log('Item ',item)
+            }
+        */
+        arr.forEach(item=>console.log('Item ',item));
+
+        /*
+        let arr2 =[];
+        for(const item of arr)
+        {
+            arr2.push(item*2);
+        }
+        */
+        let arr2 = arr.map(item=>item*2);        
+        console.log('arr2 ',arr2);
+
+        /*
+        let arr3 = [];
+        for(const item of arr)
+        {
+            if(item%2==0)
+            {
+                arr3.push(item);
+            }
+        }*/ 
+        let arr3 = arr.filter(item=> item % 2==0 );
+        console.log('even list ',arr3);
+
+        let firstEven = arr.find(item => item %2==0);
+        console.log('firstEven ',firstEven);
+
+        let firstEvenIndex = arr.findIndex(item => item %2==0);
+         console.log('firstEvenIndex ',firstEvenIndex);
+    </script>
+</html>

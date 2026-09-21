@@ -1,0 +1,78 @@
+<html>
+    
+    <script>
+        let arr = [1,2,10,111,3];
+        
+        console.log('arr ',arr);
+        /*
+            == 0
+            larger > 0
+            smaller < 0
+        */
+        //arr.sort((a,b)=>a-b);
+        arr.sort((a,b)=>b-a);
+        console.log('arr ',arr);
+
+        let students = [
+            
+            {
+                name : "Mya Mya",
+                gender: "Female",
+                age :20,
+            },
+            {
+                name : "Win Aung Lwin",
+                gender: "Male",
+                age :15,
+            },
+            {
+                name : "Hla Hla",
+                gender: "Female",
+                age :12,
+            },
+            {
+                name : "Aung Aung",
+                gender: "Male",
+                age :12,
+            },
+            {
+                name : "Khin Khin",
+                gender: "Female",
+                age :30,
+            }
+        ];
+        students.sort((a,b)=> a.age- b.age);
+        console.log('students ',students);
+
+        students.sort((a,b)=> {
+            if(a.age==b.age)
+            {
+                return a.name.localeCompare(b.name);
+            }
+            else
+            {
+                return a.age- b.age;
+            }
+        });
+        console.log('students ',students);
+        students.reverse();
+        console.log('students ',students);
+
+        arr = [1,2,10,111,3];
+        let str = arr.join('-');
+        console.log('Str ',str);
+
+        console.log('isArray ',Array.isArray(arr));
+
+        let obj = {};
+        obj[0] = 1;
+        obj[1] = 2;
+        obj.lenth = 2;
+
+        console.log('isArray ',Array.isArray(obj));
+
+        str = "Hello";
+        console.log('str ',str[0]);
+        console.log('str.length ',str.length);
+    </script>
+</html>

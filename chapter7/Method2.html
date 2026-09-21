@@ -1,0 +1,27 @@
+<html>
+    
+    <script>
+        let arr = [1,2,3,-4,5];
+        
+        let allGtZero = arr.every(item=>item>0);
+        console.log('allGtZero ',allGtZero);
+
+        let anyGtZero = arr.some(item=>item>0);
+        console.log('anyGtZero ',anyGtZero);
+
+        console.log('arr ',arr);
+
+        let total = arr.reduce(function(a,b){
+            console.log(`A ${a} B ${b}`);
+            return a+b;
+        });
+        console.log('total ',total);
+
+        let min = arr.reduce(function(a,b){
+            console.log(`A ${a} B ${b}`);
+            return a< b?a:b;
+        });
+        console.log('min ',min);
+        
+    </script>
+</html>

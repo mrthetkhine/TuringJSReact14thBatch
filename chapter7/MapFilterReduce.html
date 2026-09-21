@@ -1,0 +1,40 @@
+<html>
+    
+    <script>
+        let students = [
+            {
+                name : "Aung Aung",
+                gender: "Male",
+                age :25,
+            },
+            {
+                name : "Mya Mya",
+                gender: "Female",
+                age :20,
+            },
+            {
+                name : "Win Aung Lwin",
+                gender: "Male",
+                age :15,
+            },
+            {
+                name : "Hla Hla",
+                gender: "Female",
+                age :12,
+            },
+            {
+                name : "Khin Khin",
+                gender: "Female",
+                age :30,
+            }
+        ]
+        let result = students
+                            .filter(student=>student.gender=='Female')
+                            .reduce((a,b)=>a.age<b.age?a:b);
+        console.log('youngest Female list ',result);
+
+        let longestName = students.map(student=>student.name)
+                                   .reduce((a,b)=>a.length>b.length?a:b); 
+        console.log('longestName ',longestName);
+    </script>
+</html>
