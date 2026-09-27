@@ -1,0 +1,31 @@
+<html>
+    
+    <script>
+        
+        function show(x,y)
+        {
+            console.log(`Show ${x} ${y}`);
+        }
+        let arr = [10,20];
+        show(...arr);
+
+        function showCoordiate({x,y})
+        {
+            //let x = obj.x;
+            //let y = obj.y;
+            console.log(`Show coordinate ${x} ${y}`);
+        }
+        let obj = {
+            x: 100,
+            y : 200
+        }
+        showCoordiate(obj);
+        function show2([x,y])
+        {
+            //let x = arr[0];
+            //let y = arr[1];
+            console.log(`Show2  ${x} ${y}`);
+        }
+        show2([10,40]);
+    </script>
+</html>

@@ -1,0 +1,21 @@
+<html>
+    
+    <script>
+        
+        function uniqueId()
+        {
+            console.log('Unique Id');
+            return uniqueId.id ++;
+        }
+        uniqueId.id = 0;
+        console.log('unqueId ',uniqueId());
+        console.log('unqueId ',uniqueId());
+
+        console.log('name ',uniqueId.name);
+
+        (function()
+        {
+            console.log('IIFE');
+        })();
+    </script>
+</html>

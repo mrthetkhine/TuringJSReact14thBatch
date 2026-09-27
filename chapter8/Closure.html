@@ -1,0 +1,39 @@
+<html>
+    
+    <script>
+        
+        function outer()
+        {
+            let a = 10;
+            console.log('Outer');
+
+            inner();
+            function inner()
+            {
+                console.log('Inner ',a);
+            }
+
+        }
+        outer();
+        //inner();
+
+        function unique()
+        {
+            let id = 0;
+            return function inner()
+            {
+                console.log('Unique Id ',id);
+                return id++;
+            }
+        }
+        let nextId = unique();
+        console.log('nextId ',nextId());
+        console.log('nextId ',nextId());
+        console.log('nextId ',nextId());
+
+        let another = unique();
+        console.log('another ',another());
+        console.log('another ',another());
+        console.log('another ',another());
+    </script>
+</html>

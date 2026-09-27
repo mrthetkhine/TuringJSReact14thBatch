@@ -1,0 +1,36 @@
+<html>
+    
+    <script>
+        
+        
+
+        let fun = function() {
+            console.log('Function');
+        }
+        //fun = null;
+        fun?.();
+
+        let obj = {
+            name: 'Jhon',
+            age : 35,
+            display(message)
+            {
+                console.log(`${message} ${this.name} ${this.age}`); 
+            }
+        }
+        obj.display();
+        let date = new Date();
+        console.log('Date ',date);
+
+        let fun2 = obj.display;
+        let obj2 ={
+            name: 'Wick',
+            age : 35,
+        }
+        fun2.call(obj2,'Hello');;
+        fun2.apply(obj2,['Hello']);
+
+        let fun3 = obj.display.bind(obj2);
+        fun3('Hello');
+    </script>
+</html>

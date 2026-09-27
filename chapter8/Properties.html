@@ -1,0 +1,23 @@
+<html>
+    
+    <script>
+        
+        function hello(a,b)
+        {
+            if(arguments.length < hello.length)
+            {
+                console.warn('Function expected ',hello.length, ' but found ',arguments.length);
+            }
+            console.log(`hello ${a} ${b}`);
+        }
+        console.log('hello ',hello.name);
+        console.log('length ',hello.length);
+
+        hello();
+        console.log('toString ',hello.toString());
+        console.log('isNaN.toString ',isNaN.toString());
+
+        let fun = new Function("x","y","return x+1");
+        console.log('fun ',fun(10,20));
+    </script>
+</html>

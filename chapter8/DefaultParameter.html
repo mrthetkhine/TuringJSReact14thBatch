@@ -1,0 +1,31 @@
+<html>
+    
+    <script>
+        
+        function greet(message="Hello")
+        {
+            console.log('Greet ',message);
+        }
+        greet();
+        greet('Hi');
+
+        function sum(...nums)
+        {
+            let total = 0;
+            for(let i=0;i<nums.length;i++)
+            {
+                total += nums[i];
+            }
+            return total;
+        }
+        console.log('Sum ',sum(10,20));
+        console.log('Sum ',sum(10,20,30,40));
+
+        function demo()
+        {
+            console.log('Arguments ',arguments.length);
+            console.log('arguments ',arguments);
+        }
+        demo('hi',1,2,3);
+    </script>
+</html>
