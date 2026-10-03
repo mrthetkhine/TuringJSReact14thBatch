@@ -1,0 +1,28 @@
+<html>
+    
+    <script>
+        
+        function hello() {
+            console.log('Hello');
+            console.log('World');
+        }
+        
+        function add(x,y)
+        {
+            return x+y;
+        }
+        let result = add(1,2);
+        console.log('result ',result);
+
+        let fun = (x,y)=>{
+            console.log('add ',x, ' ',y);
+            return x+y;
+
+        };
+        let result2 = fun(3,4);
+        console.log('result2 ',result2);
+
+        let fun2= ()=>({name:'Jhon'});
+        console.log('func2 ',fun2());
+    </script>
+</html>

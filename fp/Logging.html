@@ -1,0 +1,26 @@
+<html>
+    
+    <script>
+        
+        function payment(orderId)
+        {
+            console.log('Payment processing ',orderId);
+            
+        }
+        function order()
+        {
+            console.log('Order processing');
+        }
+        function log(fn)
+        {
+            return function(...args){
+                console.log('fn ',fn.name, ' was called');
+                return fn(...args);   
+            }
+        }
+        payment = log(payment);
+       
+        payment('12233');
+        
+    </script>
+</html>

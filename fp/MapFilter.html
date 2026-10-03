@@ -1,0 +1,47 @@
+<html>
+    
+    <script>
+        let students = [
+            {
+                name : 'Aung Aung',
+                city:'Ygn',
+                age: 20
+            },
+            {
+                name : 'Aung Naing',
+                city:'Mdy',
+                age: 20
+            },
+            {
+                name : 'Mya Mya',
+                city:'Mdy',
+                age: 20
+            },
+            {
+                name : 'Win Maung',
+                city:'Ygn',
+                age: 20
+            },
+        ]
+            /*
+            {
+                'Ygn':[],
+                'Mdy':[]
+            }
+            */
+           function map(arr,fn)
+           {
+             return arr.reduce((result,item)=>[...result,fn(item)],[])
+           }
+           let result = map(students,(student)=>student.name);
+           console.log('result ',result);
+
+           function filter(arr,fn)
+           {
+            return arr.reduce((result,item)=> fn(item) ? [...result,item] : result,[]);
+           }
+           console.log('Students ',students);
+           result = filter(students,(student)=>student.city === 'Ygn');
+           console.log('result ',result);
+        </script>
+</html>

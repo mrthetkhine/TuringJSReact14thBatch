@@ -1,0 +1,32 @@
+<html>
+    
+    <script>
+        
+        function hello() {
+            console.log('Hello');
+            console.log('World');
+        }
+        
+        //Rule 1
+        let fun = hello;
+        fun();
+
+        //Rule 2
+        function getFun(fn)
+        {
+            console.log('getFun');
+            fn();
+        }
+        getFun(hello);
+
+        //Rule 3
+        function getFun2()
+        {
+            console.log('getFun2');
+            return function(){
+                console.log('getFun2 return function');
+            }
+        }
+        getFun2()();
+    </script>
+</html>

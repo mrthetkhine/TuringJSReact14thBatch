@@ -1,0 +1,47 @@
+<html>
+    
+    <script>
+        function add(x,y )
+        {
+            return x +y ;
+        }
+        let result = add(1,2);
+        console.log('result ',result);
+        result = add(1,2);
+        console.log('result ',result);
+
+        let data = 10;
+
+        function getData()
+        {
+            return data;
+        }
+        console.log('getData ',getData());
+
+        function getDate()
+        {
+            return new Date();
+        }
+        console.log('getDate ',getDate());
+
+        function getRandom(fn)
+        {
+            return fn();
+        }
+        console.log('getRandom ',getRandom(Math.random));
+
+        function impureUpdateObj(obj)
+        {
+            obj.name = 'Jhon';
+            obj.age = 20;
+        }
+        function pureUpdateObj(obj)
+        {
+            let newObj = {...obj};
+            newObj.name = 'Jhon';
+            newObj.age = 20;
+            return newObj;
+        }
+
+        </script>
+</html>

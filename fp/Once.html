@@ -1,0 +1,61 @@
+<html>
+    
+    <script>
+        /*
+        let paymentDone = false;
+        function payment()
+        {
+            if(!paymentDone)
+            {
+                console.log('Payment');
+                paymentDone = true;
+            }
+            
+        }
+        let orderDone = false;
+        function order()
+        {
+            if(!orderDone)
+            {
+                console.log('Order');
+                orderDone = true;
+            }
+            
+        }
+        payment();
+        payment();
+
+        order();
+        order();
+        */
+        function payment()
+        {
+            console.log('Payment');
+            
+        }
+        function order()
+        {
+            console.log('Order');
+        }
+        function once(fn)
+        {
+            let done = false;
+            return function(){
+                if(!done)
+                {
+                    done = true;
+                    fn();   
+                }
+            }
+        }
+        payment = once(payment);
+        //oncePayment();
+        //oncePayment();
+        payment();
+        payment();
+
+        order = once(order);
+        order();
+        order();
+    </script>
+</html>
