@@ -1,0 +1,35 @@
+
+<html>
+   <script src="./lib.js"></script>
+    <script>
+        
+        function inc(x)
+        {
+            return x+1;
+        }
+        function add(x)
+        {
+            return function (y)
+            {
+                return x + y;
+            }
+        }
+        console.log('add(1) ',add(1));
+        let newFun = pipe(add(1),inc);
+        console.log('newFun 3 ',newFun(3));
+
+        function curry(fn)
+        {
+            return function(x)
+            {
+                return fn.length == 1 ? fn(x) : fn.bind(fn,x);  
+            }
+        }
+        function add2(x,y)
+        {
+            return x+y;
+        }
+        let curriedAdd = curry(add2);
+        console.log('curriedAdd ',curriedAdd(1), ' curriedAdd(1,2) ',curriedAdd(1)(2));
+    </script>    
+</html>    

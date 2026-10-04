@@ -1,0 +1,32 @@
+
+<html>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+    <script>
+        function appendHi(str)
+        {
+            return str + ' Hi';
+        }
+        function toUpper(str)
+        {
+            return str.toUpperCase();
+        }
+        let newFun = R.pipe(appendHi,toUpper);
+        console.log('newFun ',newFun('hello'));
+
+        function add(x,y)
+        {
+            return x+y;
+        }
+        let curriedAdd = R.curry(add);
+        console.log('curriedAdd ',curriedAdd(1), ' curriedAdd(1,2) ',curriedAdd(1)(2));
+
+        const equals3 = R.equals(3);
+        console.log(R.all(equals3)([3, 3, 3, 3])); //=> true
+        console.log(R.all(equals3)([3, 3, 1, 3]));
+
+        const even = x => x % 2 == 0;
+
+        console.log('count ',R.count(even, [1, 2, 3, 4, 5])); // => 2
+        console.log('Identity R.identity(5) ',R.identity(5));
+    </script>    
+</html>    

@@ -1,0 +1,74 @@
+<html>
+    
+    <script>
+        function appendHi(str)
+        {
+            return str+' hi';
+        }
+        function toUpper(str)
+        {
+            return str.toUpperCase();
+        }
+        console.log('appendHi ',appendHi('hello'));
+        console.log('toUpper ',toUpper('hello'));
+        
+        function appendHiAndToUpper(str)
+        {
+            return toUpper(appendHi(str));
+        }
+        console.log('appendHiAndToUpper ',appendHiAndToUpper('hello'));
+       
+        //compose(toUpper,appendHi)
+        function compose2(funA,funB)
+        {
+            return function(x)
+            {
+                return funA(funB(x));
+            }
+        }
+        let newFun = compose2(toUpper,appendHi);
+        console.log('newFun ',newFun('hello'));
+
+        function compose(...fns)
+        {
+            return function(x)
+            {
+                return fns.reduceRight((input,fn)=>fn(input),x);
+            }
+        }
+        newFun = compose(toUpper,appendHi);
+        console.log('newFun ',newFun('hello'));
+
+        function incOne(x)
+        {
+            return x+1;
+        }
+        function double(x)
+        {
+            return x*2;
+        }
+        function divBy3(x)
+        {
+            return x/3;
+        }
+        newFun = compose(divBy3,double,incOne);
+        console.log('newFun ',newFun(5));
+
+        function pipe(...fns)
+        {
+            return function(x)
+            {
+                return fns.reduce((input,fn)=>fn(input),x);
+            }
+        }
+        nweFun = pipe(incOne,double,divBy3);
+        console.log('newFun ',newFun(5));
+
+        function length(str)
+        {
+            return str.length;
+        }
+        newFun = pipe(appendHi,length,double);
+        console.log('newFun ',newFun('hello'));
+    </script>
+</html>

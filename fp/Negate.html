@@ -1,0 +1,21 @@
+<html>
+    
+    <script>
+        let arr = [1,2,3,4,5];
+        const isEven = x=> x %2 ==0;
+
+        const evenList = arr.filter(isEven);
+        console.log('EvenLIst ',evenList);
+
+        function not(fn)
+        {
+            return function(...args)
+            {
+                return !fn(...args);
+            }
+        }
+        const isOdd =not(isEven);
+        const oddList = arr.filter(isOdd);
+        console.log('OddLIst ',oddList);
+    </script>
+</html>

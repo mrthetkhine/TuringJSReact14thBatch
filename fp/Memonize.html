@@ -1,0 +1,46 @@
+<html>
+    
+    <script>
+        function factorial(n)
+        {
+            console.log('Compute fact ',n);
+            let result =1;
+            for(let i=1;i<=n;i++)
+            {
+                result *=i;
+            }
+            return result;
+        }
+        //console.log('Fact 3 ',factorial(3));
+
+        /*
+            cache[3] = factorial(3);
+        */
+        function memonize(fn)
+        {
+            let cache = {}; 
+            return function(n)
+            {
+                if(!cache[n])
+                {
+                    cache[n] = fn(n);
+                }
+                return cache[n];
+            } 
+        }
+        factorial = memonize(factorial);
+        console.log('Fact 3 ',factorial(3));
+        console.log('Fact 3 ',factorial(3));
+        console.log('Fact 6 ',factorial(6));
+        console.log('Fact 6 ',factorial(6));
+
+        function double(x)
+        {
+            console.log('Compute dobule ',x);
+            return x*x;
+        }
+        double = memonize(double);
+        console.log('double 2 ',double(2));
+        console.log('double 2 ',double(2));
+    </script>
+</html>

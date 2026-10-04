@@ -1,0 +1,28 @@
+<html>
+    
+    <script>
+        function unary(fn)
+        {
+                return function(x)
+                {
+                    return fn(x);
+                }
+        }
+        let arr = ["1","2","3","4","5"];
+        let nums = arr.map(unary(parseInt));
+        console.log('Nums ',nums);
+
+        //map (value,index,array)
+        //parseInt (input,radix)
+        /*
+            parseInt("1",0)
+            parseInt("2",1)
+            parseInt("3",2)
+            parseInt("4",3)
+            parseInt("5",4)
+        */
+       console.log('parseInt("2",1) ',parseInt("2",1));
+
+       
+    </script>
+</html>
