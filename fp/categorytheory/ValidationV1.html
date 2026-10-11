@@ -1,0 +1,45 @@
+
+<html>
+   
+    <script>
+        const isNotEmpty= (str)=>str.length>0;
+
+        console.log('isNotEmpty "" ',isNotEmpty(''));
+        console.log('isNotEmpty "a" ',isNotEmpty('a'));
+
+        const minLength = (length)=>(str)=>str.length>=length;
+        console.log('minLength 2 "" ',minLength(2)(''));
+        console.log('minLength 2 "he" ',minLength(2)('he'));
+
+        const maxLength = (length)=>(str)=>str.length<=length;
+        console.log('maxLength 3 "" ',maxLength(3)(''));
+        console.log('maxLength 3 "hello" ',maxLength(3)('hello'));
+
+        const validEmail = (str)=>str.includes('@');
+        console.log('validEmail "" ',validEmail(''));
+        console.log('validEmail "hello@.com" ',validEmail('hello@.com'));
+
+        function and(...validationFns)
+        {
+            return function(input)
+            {
+                return validationFns.reduce((result,fn)=>result && fn(input),true);
+            }
+        }
+        function or(...validationFns)
+        {
+            return function(input)
+            {
+                return validationFns.reduce((result,fn)=>result || fn(input),false);
+            }
+        }
+        let validation = and(isNotEmpty,minLength(2),maxLength(5));
+        console.log('validation "" ',validation(''));
+        console.log('validation "hello" ',validation('hello'));
+        //console.log('validation "hello@.com" ',validation('hello@.com'));
+
+        let validation2 = and(isNotEmpty,or(minLength(2),maxLength(5)));
+        console.log('validation2 "" ',validation2(''));
+        console.log('validation2 "hello" ',validation2('hello'));
+    </script>    
+</html>    

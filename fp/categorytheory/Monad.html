@@ -1,0 +1,98 @@
+
+<html>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+    <script>
+        let Left = (value)=>({
+            valueOf:()=>value,
+            isLeft()
+            {
+                return true;
+            },
+            map(fn)
+            {
+                return this;
+            },
+            flat()
+            {
+                return this.valueOf();
+            },
+            flatMap(fn)
+            {
+                return this.map(fn).flat();
+            },
+            matchWith({left,right})
+            {
+                return left(value);
+            }
+        })
+        Left.of = Left;
+        let Right = (value)=>({
+            valueOf:()=>value,
+            isLeft()
+            {
+                return false;
+            },
+            map(fn)
+            {
+                return Right.of(fn(value));
+            },
+            flat()
+            {
+                return this.valueOf();
+            },
+            flatMap(fn)
+            {
+                return this.map(fn).flat();
+            },
+            matchWith({left,right})
+            {
+                return right(value);
+            }
+        })
+        Right.of = Right;
+        //Applicative Functor
+        let Monad = (value) => ({
+            valueOf:()=>value,
+            map:(fn)=>Monad(fn(value)),
+            ap:(another)=>Monad(value(another.valueOf()))
+        });
+        Monad.of = Monad;
+        
+        function validateName(obj)
+        {
+            console.log('Validate name ',obj);
+            if(obj.name === "")
+            {
+                return Left.of("Name cannot be empty");
+            }
+            else
+            {
+                return Right.of(obj);
+            }
+        }
+        function validateEmail(obj)
+        {
+            console.log('validatEmail ',obj);
+            if(obj.email.includes("@") === false)
+            {
+                return Left.of("Invalid email");
+            }
+            else
+            {
+                return Right.of(obj);
+            }
+        }
+        let user = {
+            name: 'jhon',
+            email: 'j@j.com'
+        }
+        //[1,2,3].map(x=>[x,x*2])
+        Right.of(user)
+            .flatMap(validateName)//Either(Right.of(user))
+            .flatMap(validateEmail)
+            .matchWith({
+                left:(err)=>console.log('Error ',err),
+                right:(result)=>console.log('success save',result)
+            })
+    </script>    
+</html>    

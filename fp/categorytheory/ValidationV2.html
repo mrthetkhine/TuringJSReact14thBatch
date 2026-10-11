@@ -1,0 +1,116 @@
+
+<html>
+   
+    <script>
+        let Left = (value)=>({
+            valueOf:()=>value,
+            isLeft()
+            {
+                return true;
+            },
+            map(fn)
+            {
+                return this;
+            },
+            flat()
+            {
+                return this.valueOf();
+            },
+            flatMap(fn)
+            {
+                return this.map(fn).flat();
+            },
+            matchWith({left,right})
+            {
+                return left(value);
+            },
+            and(another)
+            {
+                console.log('Left and ',another);
+                return another.isLeft()?Left.of([...value,...another.valueOf()]):this;
+            }
+        })
+        Left.of = Left;
+        let Right = (value)=>({
+            valueOf:()=>value,
+            isLeft()
+            {
+                return false;
+            },
+            map(fn)
+            {
+                return Right.of(fn(value));
+            },
+            flat()
+            {
+                return this.valueOf();
+            },
+            flatMap(fn)
+            {
+                return this.map(fn).flat();
+            },
+            matchWith({left,right})
+            {
+                return right(value);
+            },
+            and(another)
+            {
+                console.log('Right and ',another);
+                return another.isLeft()?another:this;
+            }
+        })
+        Right.of = Right;
+        const isNotEmpty= (str)=>str.length>0;
+        const minLength = (length)=>(str)=>str.length>=length;
+        const maxLength = (length)=>(str)=>str.length<=length;
+        const validEmail = (str)=>str.includes('@');
+
+        function enhanced(message,fn)
+        {
+            return function(input)
+            {
+                return fn(input)?Right.of(input):Left.of(message);
+            }
+        }
+        let isNotEmptyV2 = enhanced('Should not be empty',isNotEmpty);
+        let minLengthV2 = enhanced('Should be at least 2 characters',minLength(2));
+        let maxLengthV2 = enhanced('Should be at most 5 characters',maxLength(5));
+        let validEmailV2 = enhanced('Should be a valid email',validEmail);
+        
+        let isNameNotEmpty = (obj)=> isNotEmptyV2(obj.name);
+        let nameMinLength = (obj)=> minLengthV2(obj.name);
+        let nameMaxLength = (obj)=> maxLengthV2(obj.name);
+        let emailValid = (obj)=> validEmailV2(obj.email);
+        
+        function and(...validationFns)
+        {
+            return function(input)
+            {
+                return validationFns.reduce((result,fn)=>result.and(fn(input)),Right.of(input));
+            }
+        }
+
+        /*
+        isNotEmptyV2(obj.name)
+            .matchWith({
+                left:(err)=>console.log('Validation err ',err),
+                right:(result)=>console.log('success ',result)
+            })
+        minLengthV2(obj.name)
+            .matchWith({
+                left:(err)=>console.log('Validation err ',err),
+                right:(result)=>console.log('success ',result)
+            })
+        */        
+       let obj = {
+            name: 'Jhon',
+            email: 'j@j.com'
+        }
+       let validationV2= and(isNameNotEmpty,nameMinLength);
+        validationV2(obj)
+            .matchWith({
+                left:(err)=>console.log('Validation err ',err),
+                right:(result)=>console.log('success ',result)
+            });
+    </script>    
+</html>    

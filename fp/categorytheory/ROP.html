@@ -1,0 +1,79 @@
+
+<html>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+    <script>
+        function div(a,b)
+        {
+            if(b==0)
+            {
+                throw new Error('Cannot divide by zero');
+            }
+            else
+            {
+                return a/b;
+            }
+        }
+        function div2(a,b)
+        {
+            if(b==0)
+            {
+                return Left.of('Cannot divide by zero');
+            }
+            else
+            {
+                return Right.of(a/b);
+            }
+        }
+        let Left = (value)=>({
+            valueOf:()=>value,
+            isLeft()
+            {
+                return true;
+            },
+            map(fn)
+            {
+                return this;
+            },
+            matchWith({left,right})
+            {
+                return left(value);
+            }
+        })
+        Left.of = Left;
+        let Right = (value)=>({
+            valueOf:()=>value,
+            isLeft()
+            {
+                return false;
+            },
+            map(fn)
+            {
+                return Right.of(fn(value));
+            },
+            matchWith({left,right})
+            {
+                return right(value);
+            }
+        })
+        Right.of = Right;
+
+        /*
+        div2(12,3)
+            .map(x=>x+1)
+            .matchWith({
+                left:(err)=>console.log('Error ',err),
+                right:(result)=>console.log('success ',result)
+            });
+        */
+       div2(10,2)
+            .matchWith({
+                left:(err)=>Right.of(1),
+                right:(value)=>Right.of(value)
+            })
+            .map(x=>x+10)
+            .matchWith({
+                left:(err)=>console.log('Error ',err),
+                right:(result)=>console.log('success ',result)
+            });
+    </script>    
+</html>    
