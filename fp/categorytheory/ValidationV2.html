@@ -28,6 +28,11 @@
             {
                 console.log('Left and ',another);
                 return another.isLeft()?Left.of([...value,...another.valueOf()]):this;
+            },
+            or(another)
+            {
+                console.log('Left or ',another);
+                return another.isLeft()?Left.of([...value,...another.valueOf()]):another;
             }
         })
         Left.of = Left;
@@ -57,6 +62,11 @@
             {
                 console.log('Right and ',another);
                 return another.isLeft()?another:this;
+            },
+            or(another)
+            {
+                console.log('Right or ',another);
+                return this;
             }
         })
         Right.of = Right;
@@ -69,7 +79,7 @@
         {
             return function(input)
             {
-                return fn(input)?Right.of(input):Left.of(message);
+                return fn(input)?Right.of(input):Left.of([message]);
             }
         }
         let isNotEmptyV2 = enhanced('Should not be empty',isNotEmpty);
@@ -89,7 +99,13 @@
                 return validationFns.reduce((result,fn)=>result.and(fn(input)),Right.of(input));
             }
         }
-
+        function or(...validationFns)
+        {
+            return function(input)
+            {
+                return validationFns.reduce((result,fn)=>result.or(fn(input)),Left.of([]));
+            }
+        }
         /*
         isNotEmptyV2(obj.name)
             .matchWith({
@@ -103,14 +119,27 @@
             })
         */        
        let obj = {
-            name: 'Jhon',
+            name: 'jk',
             email: 'j@j.com'
         }
-       let validationV2= and(isNameNotEmpty,nameMinLength);
+        /*
+        let validationV2= and(isNameNotEmpty,nameMinLength,emailValid);
         validationV2(obj)
             .matchWith({
                 left:(err)=>console.log('Validation err ',err),
                 right:(result)=>console.log('success ',result)
+            });
+        */ 
+       let validationV2= or(isNameNotEmpty,emailValid);   
+       validationV2(obj)
+            .matchWith({
+                left:(err)=>console.log('Validation err ',err),
+                right:(result)=>console.log('success ',result)
+            });
+        isNameNotEmpty(obj)    
+            .matchWith({
+                left:(err)=>console.log('Validation err ',err),
+                right:(result)=>console.log('success name ',result)
             });
     </script>    
 </html>    

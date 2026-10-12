@@ -1,0 +1,31 @@
+
+<html>
+   
+    <script>
+        class Human
+        {
+          
+            constructor(name,age)
+            {
+                this.name = name;
+                this.age = age;
+            }
+            display()
+            {
+                console.log(`Name ${this.name} Age ${this.age}`);
+            }
+            
+
+        }
+        class Teacher extends Human
+        {
+            constructor(name,age,subject)
+            {
+                super(name,age);
+                this.subject = subject;
+            }
+        }
+        let teacher = new Teacher('Jhon',35,'Math');
+        teacher.display();
+    </script>    
+</html>    

@@ -1,0 +1,56 @@
+
+<html>
+   
+    <script>
+        /*
+        let book = {
+            name: 'Book',
+            quantity: 10,
+            price: 5,
+            get total()
+            {
+                return this.price * this.quantity;
+            },
+            toString()
+            {
+                return `${this.name} ${this.quantity} x ${this.price} = ${this.total}`
+            }
+        }
+        console.log(book.toString());
+        let fruit = {
+            name: 'Apple',
+            quantity: 10,
+            price: 15,
+            get total()
+            {
+                return this.price * this.quantity;
+            },
+            toString()
+            {
+                return `${this.name} ${this.quantity} x ${this.price} = ${this.total}`
+            }
+        }
+        console.log(fruit.toString());
+        */
+       function createItem(name,quantity,price)
+       {
+           return {
+               name,
+               quantity,
+               price,
+               get total()
+               {
+                   return this.price * this.quantity;
+               },
+               toString()
+               {
+                   return `${this.name} ${this.quantity} x ${this.price} = ${this.total}`
+               }
+           }
+       }
+       let book = createItem('Book',10,5);
+       console.log(book.toString());
+       let fruit = createItem('Apple',10,15);
+       console.log(fruit.toString());
+    </script>    
+</html>    

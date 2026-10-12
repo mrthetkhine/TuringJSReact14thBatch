@@ -1,0 +1,24 @@
+
+<html>
+   
+    <script>
+        class Item
+        {
+            #name;
+            constructor(name,quantity,price)
+            {
+                this.#name = name;
+                this.quantity = quantity;
+                this.price = price;
+            }
+        }
+        Item.prototype.display= function()
+        {
+            console.log(`${this.name} ${this.quantity} x ${this.price} = ${this.price*this.quantity}`);
+        }
+        let item = new Item('Apple',30,10);
+        //item.#name = "Books";
+        console.log('items ',item);
+        item.display();
+    </script>    
+</html>    

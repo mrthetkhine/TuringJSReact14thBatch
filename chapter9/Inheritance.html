@@ -1,0 +1,45 @@
+
+<html>
+   
+    <script>
+        class TwoD
+        {
+            constructor(x,y)
+            {
+                this.x = x;
+                this.y = y;
+                console.log('Two D constructor');
+            }
+
+            show()
+            {
+                console.log(`x ${this.x}, y ${this.y}`);
+            }
+        }
+        class ThreeD extends TwoD
+        {
+            constructor(x,y,z)
+            {
+                super(x,y);
+                this.z = z;
+                console.log('Three D constructor');
+            }
+
+            show()
+            {
+                super.show();
+                console.log(`z ${this.z}`);
+            }
+        }
+        /*
+        let twoD = new TwoD(10,20);
+        twoD.show();
+        */
+        let threeD = new ThreeD(10,20,30);
+        threeD.show();
+
+        console.log('threeD instanceof TwoD ',threeD instanceof TwoD);
+        console.log('threeD instanceof ThreeD ',threeD instanceof ThreeD);
+        console.log('threeD instanceof Object ',threeD instanceof Object);
+    </script>    
+</html>    

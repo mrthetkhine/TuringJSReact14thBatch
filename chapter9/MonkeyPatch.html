@@ -1,0 +1,28 @@
+
+<html>
+   
+    <script>
+        let str = "hello";
+        String.prototype.contains= function(substring)
+        {
+            console.log('contains ',substring);
+            return this.includes(substring);
+        }
+        console.log('str ',str.contains('hell'));
+
+        class Student
+        {
+            static id = 0;
+            constructor(name)
+            {
+                this.name = name;
+                this.uniqueId = ++Student.id;
+            }
+        }
+        let stud1 = new Student('Aung Aung');
+        let stud2 = new Student('Kyaw Kyaw');
+        console.log('stud1 ',stud1);
+        console.log('stud2 ',stud2);
+        console.log('id ',Student.id);
+    </script>    
+</html>    

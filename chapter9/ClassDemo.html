@@ -1,0 +1,39 @@
+
+<html>
+   
+    <script>
+        class Item
+        {
+            constructor(name,quantity,price)
+            {
+                this.name = name;
+                this.quantity = quantity;
+                this.price = price;
+                console.log('Constructor ');
+            }
+            get total()
+            {
+                return this.price * this.quantity;
+            }
+            toString()
+            {
+                return `${this.name} ${this.quantity} x ${this.price} = ${this.total}`
+            }
+        }
+        Item.prototype = {
+            display()
+            {
+                console.log('Display');
+            }
+        }
+        let books =new Item('Book',10,5);
+        console.log('books ',books);
+        
+        console.log('books instaneof Item ',books instanceof Item);
+        console.log('books instaneof Object ',books instanceof Object);
+        console.log('books instaneof Date ',books instanceof Date);
+        console.log(books.toString());
+        let fruits = new Item('Apple',20,10);
+        console.log(fruits.toString());
+    </script>    
+</html>    
