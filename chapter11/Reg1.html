@@ -1,0 +1,57 @@
+
+<html>
+    <body>
+       
+    </body>
+    <script>
+
+        let pattern;
+
+        pattern = /^\d?$/;
+        console.log('===============');
+        console.log(` ${pattern} test "" `,pattern.test(''));
+        console.log(` ${pattern} test 1 `,pattern.test('1'))
+        console.log(` ${pattern} test 112 `,pattern.test('112'));
+        console.log(` ${pattern} test 112A `,pattern.test('112A'));
+
+        pattern = /^(a|b)+$/;
+        console.log('===============');
+        console.log(` ${pattern} test "" `,pattern.test(''));
+        console.log(` ${pattern} test a `,pattern.test('a'))
+        console.log(` ${pattern} test ab `,pattern.test('ab'));
+        console.log(` ${pattern} test abababba `,pattern.test('abababba'));
+        console.log(` ${pattern} test abababba1 `,pattern.test('abababba1'));
+
+        pattern = /^[1-5]+$/;
+        console.log('===============');
+        console.log(` ${pattern} test "" `,pattern.test(''));
+        console.log(` ${pattern} test 1234 `,pattern.test('1234'))
+        console.log(` ${pattern} test 1246 `,pattern.test('1246'));
+       
+        pattern = /^[1-5]{2}$/;
+        console.log('===============');
+        console.log(` ${pattern} test "" `,pattern.test(''));
+        console.log(` ${pattern} test 1 `,pattern.test('1'))
+        console.log(` ${pattern} test 12 `,pattern.test('12'))
+        console.log(` ${pattern} test 123 `,pattern.test('123'))
+        console.log(` ${pattern} test 1246 `,pattern.test('1246'));
+
+        pattern = /^[1-5]{2,}$/;
+        console.log('===============');
+        console.log(` ${pattern} test "" `,pattern.test(''));
+        console.log(` ${pattern} test 1 `,pattern.test('1'))
+        console.log(` ${pattern} test 12 `,pattern.test('12'))
+        console.log(` ${pattern} test 123 `,pattern.test('123'))
+        console.log(` ${pattern} test 1246 `,pattern.test('1246'));
+
+        pattern = /^[1-5]{2,6}$/;
+        console.log('===============');
+        console.log(` ${pattern} test "" `,pattern.test(''));
+        console.log(` ${pattern} test 1 `,pattern.test('1'))
+        console.log(` ${pattern} test 12 `,pattern.test('12'))
+        console.log(` ${pattern} test 123 `,pattern.test('123'))
+        console.log(` ${pattern} test 123454 `,pattern.test('123454'))
+        console.log(` ${pattern} test 1234545 `,pattern.test('1234545'))
+        console.log(` ${pattern} test 1246 `,pattern.test('1246'));
+    </script>    
+</html>    

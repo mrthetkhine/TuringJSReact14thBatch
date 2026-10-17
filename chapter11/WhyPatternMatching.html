@@ -1,0 +1,43 @@
+
+<html>
+    <body>
+       
+    </body>
+    <script>
+        let digits = /^\d+$/;
+
+        console.log('test 1223 ',digits.test('1223'));
+        console.log('test 1a223 ',digits.test('1a223'));
+
+        let pattern = /^A/;
+
+        console.log('test A ',pattern.test('A'));
+        console.log('test Aa ',pattern.test('Aa'));
+        console.log('test Ba ',pattern.test('Ba'));
+
+        pattern = /k$/;
+        console.log();
+        console.log(` ${pattern} test kick `,pattern.test('kick'));
+        console.log(` ${pattern} test sick `,pattern.test('sick'));
+        console.log(` ${pattern} test hello `,pattern.test('hello'));
+
+        pattern = /k.$/;
+        console.log();
+        console.log(` ${pattern} test kicko `,pattern.test('kicko'));
+        console.log(` ${pattern} test sick1 `,pattern.test('sick1'));
+        console.log(` ${pattern} test sick1 `,pattern.test('sick1'));
+
+        pattern = /^\d*$/;
+        console.log();
+        console.log(` ${pattern} test "" `,pattern.test(''));
+        console.log(` ${pattern} test 112 `,pattern.test('112'))
+        console.log(` ${pattern} test 112A `,pattern.test('112A'));
+
+        pattern = /^\d+$/;
+        console.log();
+        console.log(` ${pattern} test "" `,pattern.test(''));
+        console.log(` ${pattern} test 1 `,pattern.test('1'))
+        console.log(` ${pattern} test 112 `,pattern.test('112'));
+        console.log(` ${pattern} test 112A `,pattern.test('112A'));
+    </script>    
+</html>    

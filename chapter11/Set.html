@@ -1,0 +1,29 @@
+
+<html>
+   
+    <script>
+        let set = new Set([1,2,3,1,2,3]);
+        console.log('set ',set);
+
+        console.log('size ',set.size);
+        set.add(4);
+        console.log('set ',set);
+
+        set.delete(1);
+        console.log('set ',set);
+
+        //set.clear();
+        console.log('set.has(2) ',set.has(2));
+
+        for(const item of set)
+        {
+            console.log('item ',item);
+        }
+        let arr = [...set];
+        console.log('arr ',arr);
+
+        set.forEach(x=>{
+            console.log('x ',x);
+        });
+    </script>    
+</html>    

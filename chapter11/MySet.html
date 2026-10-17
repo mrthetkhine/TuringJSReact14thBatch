@@ -1,0 +1,85 @@
+
+<html>
+   
+    <script>
+        class MySet
+        {
+
+            constructor(items)
+            {
+                this.items = [];
+                this.deduplicate(items);
+            }
+            deduplicate(items)
+            {
+                for(const item of items)
+                {
+                    if(!this.items.includes(item))
+                    {
+                        this.items.push(item);
+                    }
+                }
+                //console.log('items ',this.items);
+            }
+            get size()
+            {
+                return this.items.length;
+            }
+            add(item)
+            {
+                if(!this.items.includes(item))
+                {
+                    this.items.push(item);
+                }
+            }
+            delete(item)
+            {
+                let index = this.items.indexOf(item);
+                if(index !== -1)
+                {
+                    this.items.splice(index,1);
+                }
+            }
+            clear()
+            {
+                this.items = [];
+            }
+            has(item)
+            {
+                return this.items.includes(item);
+            }
+        }
+        let set = new MySet([1,2,3,1,2,3]);
+        set.add(4);
+        set.delete(1);
+        console.log('set ',set);
+        console.log('size ',set.size);
+
+        //set.clear();
+        console.log('set.has(4) ',set.has(4));
+        /*
+        console.log('set ',set);
+
+        
+        set.add(4);
+        console.log('set ',set);
+
+        set.delete(1);
+        console.log('set ',set);
+
+        //set.clear();
+        console.log('set.has(2) ',set.has(2));
+
+        for(const item of set)
+        {
+            console.log('item ',item);
+        }
+        let arr = [...set];
+        console.log('arr ',arr);
+
+        set.forEach(x=>{
+            console.log('x ',x);
+        });
+        */
+    </script>    
+</html>    

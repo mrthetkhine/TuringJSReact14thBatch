@@ -1,0 +1,41 @@
+
+<html>
+    <body>
+       
+    </body>
+    <script>
+
+        let pattern;
+
+        pattern = /^[^1-3]+$/;
+        console.log('===============');
+        console.log(` ${pattern} test "" `,pattern.test(''));
+        console.log(` ${pattern} test 1 `,pattern.test('1'))
+        console.log(` ${pattern} test 112A `,pattern.test('112A'));
+        console.log(` ${pattern} test abc `,pattern.test('abc'));
+        
+        pattern = /^\w+$/;
+        console.log('===============');
+        console.log(` ${pattern} test "" `,pattern.test(''));
+        console.log(` ${pattern} test " " `,pattern.test(' '));
+        console.log(` ${pattern} test 1 `,pattern.test('1'))
+        console.log(` ${pattern} test 112A `,pattern.test('112A'));
+        console.log(` ${pattern} test abc `,pattern.test('abc'));
+
+        pattern = /^\W+$/;
+        console.log('===============');
+        console.log(` ${pattern} test "" `,pattern.test(''));
+        console.log(` ${pattern} test " " `,pattern.test(' '));
+        console.log(` ${pattern} test 1 `,pattern.test('1'))
+        console.log(` ${pattern} test 112A `,pattern.test('112A'));
+        console.log(` ${pattern} test abc `,pattern.test('abc'));
+
+         pattern = /^\S+$/;
+        console.log('===============');
+        console.log(` ${pattern} test "" `,pattern.test(''));
+        console.log(` ${pattern} test " " `,pattern.test(' '));
+        console.log(` ${pattern} test 1 `,pattern.test('1'))
+        console.log(` ${pattern} test 112A `,pattern.test('112A'));
+        console.log(` ${pattern} test abc `,pattern.test('abc'));
+    </script>    
+</html>    
