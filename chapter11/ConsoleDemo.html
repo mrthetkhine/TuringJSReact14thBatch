@@ -1,0 +1,72 @@
+<html>
+    
+    <script>
+       console.log('log');
+       console.error('error');
+       console.debug('debug');
+       console.warn('warn');
+       console.info('info');
+
+       function greet(message)
+       {
+            console.assert(message,'message not should be empty');
+            console.log(message);
+       }
+       greet();
+
+       console.clear();
+
+       let students = [
+            {
+                name: "Mya Mya",
+                age : 30
+            },
+            {
+                name: "Aung Hla",
+                age : 30
+            },
+            {
+                name: "Win Naing",
+                age : 20
+            },
+            {
+                name: "Win Win",
+                age : 18
+            },
+        ]
+        console.table(students);
+
+        function f1()
+        {
+            console.log('f1');
+            f2();
+        }
+        function f2()
+        {
+            console.log('f2');
+            console.trace('f2 here');
+        }
+        f1();
+        console.time('time');
+        for(let i=0;i<10;i++)
+        {
+            console.count('count');
+            //console.log('Hello');
+        }
+        console.countReset('count');
+        for(let i=0;i<3;i++)
+        {
+            console.count('count');
+            //console.log('Hello');
+        }
+        console.group('first');
+        console.log('first message');
+        console.group('second');
+        
+        console.log('second message');
+        console.groupEnd('second');
+        console.log('got to first level');
+        console.timeLog('time');
+        console.timeEnd('time');
+    </script>
+</html>

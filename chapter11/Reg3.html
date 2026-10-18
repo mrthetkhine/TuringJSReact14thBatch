@@ -1,0 +1,40 @@
+
+<html>
+    <body>
+       
+    </body>
+    <script>
+
+        let url = /(\w+):\/\/([\w.]+)\/(\S*)/;
+        let text = "Visit my blog at http://www.example.com/~david"; 
+        let match = text.match(url);
+        let fullurl, protocol, host, path;
+        if (match !== null) {
+            fullurl = match[0]; // fullurl == "http://www.example.com/~david"
+            protocol = match[1]; // protocol == "http"
+            host = match[2]; // host == "www.example.com" 
+            path = match[3]; // path == "~david"
+        }
+        console.log('fullurl ',fullurl);
+        console.log('protocol ',protocol);
+        console.log('host ',host);
+        console.log('path ',path);
+
+        const words = /\b\p{Alphabetic}+\b/gu; // \p is not supported in Firefox yet
+        text = "This is a naïve test of the matchAll() method.";
+        for(let word of text.matchAll(words)) {
+            console.log(`Found '${word[0]}' at index ${word.index}.`);
+        }
+        let str= "apple;orange;banana";
+        let arr = str.split(';');
+        console.log('arr ',arr);
+
+        let pattern = /Java/g;
+        text = "JavaScript > Java";
+            //match;
+        while((match = pattern.exec(text)) !== null) {
+            console.log(`Matched ${match[0]} at ${match.index}`);
+            console.log(`Next search begins at ${pattern.lastIndex}`);
+        }
+    </script>    
+</html>    

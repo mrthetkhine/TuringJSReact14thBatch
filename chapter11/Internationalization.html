@@ -1,0 +1,37 @@
+<html>
+    
+    <script>
+        let euros = Intl.NumberFormat("es", {style: "currency", currency: "EUR"});
+        console.log('euros ',euros.format(1234.56));
+
+        let students = [
+            {
+                name: "Mya Mya",
+                age : 30
+            },
+            {
+                name: "Aung Hla",
+                age : 30
+            },
+            {
+                name: "Win Naing",
+                age : 20
+            },
+            {
+                name: "Win Win",
+                age : 18
+            },
+        ]
+        students.sort((a,b)=>{
+            if(a.age== b.age)
+            {
+                return a.name.localeCompare(b.name);
+            }
+            else
+            {
+                return a.age - b.age;
+            }
+        });
+        console.log('students ',students);
+    </script>
+</html>

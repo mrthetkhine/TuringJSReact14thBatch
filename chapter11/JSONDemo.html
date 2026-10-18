@@ -1,0 +1,44 @@
+<html>
+    
+    <script>
+        let obj = {
+            name : 'John',
+            age : 30,
+            now:new Date(),
+            password:'secret',
+            display()
+            {
+                console.log(`Name ${this.name} Age ${this.age}`);
+            },
+            toJSON()
+            {
+                console.log('toJSON');
+                return {
+                    username : this.name,
+                    age : this.age,
+                    now:this.now,
+                }
+            }
+        }
+        let str = JSON.stringify(obj);
+        console.log('str ',str);
+        
+        let obj2 = JSON.parse(str,function(key,value){
+            if(key === 'now')
+            {
+                return new Date(value);
+            }
+            return value;
+        });
+        console.log('obj2 ',obj2);
+
+        let address ={
+                street: '123 Main St',
+                city: 'Anytown',
+                state: 'CA',
+                zip: '12345'
+            };
+        str = JSON.stringify(address,['street','city']);
+        console.log('str ',str);
+    </script>
+</html>

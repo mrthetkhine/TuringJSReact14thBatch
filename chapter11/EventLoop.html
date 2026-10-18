@@ -1,0 +1,14 @@
+<html>
+    
+    <script>
+       function delay(ms)
+       {
+           let date = new Date();
+           while( (new Date()-date)<ms);
+       }
+       setTimeout(()=>console.timeLog('time','Hello'),0);
+       console.time('time');
+       console.log('World');
+       delay(3000);
+    </script>
+</html>

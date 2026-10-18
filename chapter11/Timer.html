@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <div id="container"></div>
+        <button type="button" id="stopTimer">Stop</button>
+    </body>
+    <script>
+       let timer;
+       timer = setInterval(()=>{
+            let date = new Date();
+            document.getElementById('container').innerHTML = date.toLocaleTimeString();
+            console.log('tick');
+       },1000);
+
+       document.getElementById('stopTimer')
+                .addEventListener('click',function(){
+                    clearInterval(timer);
+                });
+        setTimeout(()=>{
+            console.log('fire ater 3 seconds');
+        },3000);
+    </script>
+</html>

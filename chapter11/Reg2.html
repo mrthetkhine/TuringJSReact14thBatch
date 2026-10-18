@@ -37,5 +37,16 @@
         console.log(` ${pattern} test 1 `,pattern.test('1'))
         console.log(` ${pattern} test 112A `,pattern.test('112A'));
         console.log(` ${pattern} test abc `,pattern.test('abc'));
+        
+        pattern = /script/ui;
+        console.log('===============');
+        console.log(` JavaScript.search(/script/ui) `,"JavaScript".search(pattern));
+        console.log(` Python.search(/script/ui) `,"Python".search(pattern));
+
+        let text ="javascript and Javascript";
+        console.log('===============');
+        console.log('text.replace ',text.replace(/javascript/gi, "JavaScript"));
+
+        console.log('match ',"7 plus 8 equals 15".match(/\d+/g));
     </script>    
 </html>    
