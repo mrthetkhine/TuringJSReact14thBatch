@@ -1,0 +1,33 @@
+<html>
+    <script>
+        
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+        .then(response =>{
+            console.log('transform');
+            return response.json();
+        })
+        .then(json => console.log(json))
+        .catch(err=>console.log('Err ',err))
+        .finally(()=>console.log('Alway run'))
+
+        try
+        {
+            setTimeout(()=>{
+                throw new Error();
+            },1000);
+        }
+        catch(err)
+        {
+            console.log('Error ',err);
+        
+        }
+        function delay(ms)
+        {
+            let date = new Date();
+            while( (new Date()-date)<ms);
+        }
+        delay(5000);
+        console.log('done');
+        
+    </script>
+</html>

@@ -1,0 +1,27 @@
+
+<html>
+   
+    <script>
+        function* range(start,end)
+        {
+            for(let i=start;i<end;i++)
+            {
+                yield i;
+            }
+            return 100;
+        }
+        let iterator = range(1,5);
+        console.log('next ',iterator.next());
+        console.log('next ',iterator.next());
+        console.log('next ',iterator.next());
+        console.log('next ',iterator.next());
+        console.log('next ',iterator.next());
+
+        for(const item of range(1,5))
+        {
+            console.log('item ',item);
+        }
+        let arr = [...range(1,10)];
+        console.log('arr ',arr)
+    </script>    
+</html>    

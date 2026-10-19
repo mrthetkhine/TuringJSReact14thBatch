@@ -1,0 +1,45 @@
+
+<html>
+   
+    <script>
+        class Range
+        {
+            constructor(start,end)
+            {
+                this.start = start;
+                this.end = end;
+            }
+            [Symbol.iterator]()
+            {
+                let from = this.start;
+                let end = this.end;
+                return {
+                    next()
+                    {
+                        //console.log('this.end ',end);
+                        let done = (from == end);
+                        return {
+                            done,
+                            value:done?undefined:from++, 
+                        }
+                    }
+                }
+            }
+        }
+        let range =new Range(1,5);
+        /*
+        let iterator = range[Symbol.iterator]();
+        console.log('next ',iterator.next());
+        console.log('next ',iterator.next());
+        console.log('next ',iterator.next());
+        console.log('next ',iterator.next());
+        console.log('next ',iterator.next());
+
+        */ 
+       for(let item of range)
+       {
+        console.log('Item ',item);
+       }
+        
+    </script>    
+</html>    

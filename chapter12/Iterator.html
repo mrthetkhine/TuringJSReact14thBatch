@@ -1,0 +1,31 @@
+
+<html>
+   
+    <script>
+        let arr = [1,2,3,4];
+        for(const item of arr)
+        {
+            console.log('Item ',item);
+        }
+        let iterator = arr[Symbol.iterator]();
+        console.log('next ',iterator.next());
+        console.log('next ',iterator.next());
+        console.log('next ',iterator.next());
+        console.log('next ',iterator.next());
+        console.log('next ',iterator.next());
+        /*
+            [Symbol.iterator]()()
+            {
+                return {
+                    next()
+                    {
+                        return{
+                            value: 1,
+                            done: false
+                        }
+                    }
+                };   
+            }
+        */
+    </script>    
+</html>    

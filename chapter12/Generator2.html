@@ -1,0 +1,25 @@
+
+<html>
+   
+    <script>
+        function* demo()
+        {
+           console.log('first');
+           let y1 = yield 1;
+           console.log('y1 ',y1);
+           let y2 = yield 2;
+           console.log('y2 ',y2);
+           let y3 = yield 3;
+           console.log('y3 ',y3);
+           let y4 = yield 4;
+           console.log('y4 ',y4);
+        }
+        let g = demo();
+        console.log('g ',g);
+        console.log('next ',g.next());
+        console.log('next ',g.next('1st'));
+        console.log('next ',g.next('2nd'));
+        console.log('next ',g.next('3rd'));
+        console.log('next ',g.next('4th'));
+    </script>    
+</html>    

@@ -1,0 +1,21 @@
+<html>
+    <script>
+        function lazyDiv(a,b,callback)
+        {
+            setTimeout(function()
+            {
+                console.log('a ',a);
+                console.log('b ',b);
+                console.log('a/b ',a/b);
+                callback(a/b);
+            },2000);
+        }
+        function processResult(x)
+        {
+            console.log('Process Result ',x);
+        }
+        lazyDiv(10,2,processResult);
+       
+        console.log('done');
+    </script>
+</html>
