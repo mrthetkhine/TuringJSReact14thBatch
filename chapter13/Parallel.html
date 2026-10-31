@@ -1,0 +1,32 @@
+<html>
+    <script>
+        
+        /*
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+            .then(resp=>resp.json())
+            .then(todo=>{
+                console.log('todo 1 ',todo);
+                fetch('https://jsonplaceholder.typicode.com/users/1')
+                    .then(resp=>resp.json())
+                    .then(user=>{
+                        console.log('user 1 ',user);
+                        console.log('todo ',todo, ' user ',user);
+                    });    
+            });
+        */ 
+       /*
+       let urls = ['https://jsonplaceholder.typicode.com/todos/1',
+                'https://jsonplaceholder.typicode.com/users/1'];
+       let promises =urls.map(url=>fetch(url)
+                            .then(resp=>resp.json()));
+       Promise.all(promises).then(data=>console.log('Data ',data)); 
+       */
+      let urls = ['https://jsonplaceholder.typicode.com/todos/1',
+                'https://jsonplaceholder.typicode.com/users/1'];
+       let promises =urls.map(url=>fetch(url)
+                            .then(resp=>resp.json()));
+       Promise.allSettled(promises).then(data=>console.log('Data ',data)); 
+
+       Promise.race(promises).then(data=>console.log('Race data ',data));
+    </script>
+</html>

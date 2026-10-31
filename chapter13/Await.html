@@ -1,0 +1,36 @@
+<html>
+    <script>
+        
+        async function getData()
+        {
+            return 100;
+        }
+        getData()
+            .then(data=>console.log('Sucess ',data),err=>console.log('Error ',err));
+       
+        function normal()
+        {
+            //return Promise.resolve(200);
+            return 300;
+        }    
+        async function callNormal()
+        {
+            let data = await normal();
+            console.log('Data ',data);
+        }
+        callNormal();
+        
+        async function parallel()
+        {
+            let urls = ['https://jsonplaceholder.typicode.com/todos/1',
+                'https://jsonplaceholder.typicode.com/todos/2'];
+            let promises =urls.map(url=>fetch(url)
+                            .then(resp=>resp.json()));
+            for await (const response of promises) 
+            { 
+                console.log('Response ',response);
+            }
+        }
+        parallel();
+    </script>
+</html>

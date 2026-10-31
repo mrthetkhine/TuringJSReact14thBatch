@@ -1,0 +1,25 @@
+<html>
+    <script>
+        
+        let obj = {
+            name: "Jhon"
+        };
+        let another  ={
+            name: "",
+            address: ''
+        }
+        function checkEmpty(obj)
+        {
+            for(let key in obj)
+            {
+                let value =obj[key];
+                if(typeof value ==='string' && value=='')
+                {
+                    console.warn('property ',key,' is empty');
+                }
+            }
+        }
+        checkEmpty(obj);
+        checkEmpty(another);
+    </script>
+</html>

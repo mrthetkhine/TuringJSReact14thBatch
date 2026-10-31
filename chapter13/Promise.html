@@ -1,0 +1,39 @@
+<html>
+    <script>
+        
+        function div(a,b)
+        {
+            if(isNaN(a) || isNaN(b))
+            {
+                return Promise.reject('A or b is NaN');
+            }
+            else
+            {
+                return Promise.resolve(a/b);
+            }
+        }
+        /*
+        div(10,NaN)
+            .then(result=>console.log('Result ',result),err=>console.log('Error ',err));
+        */
+       /*
+       Promise.reject(5)
+               .then(x=>x+1,err=>{
+                    console.log('Error ',err);
+                    return 10;
+               })
+               .then(data=>console.log('Sucess ',data),err=>console.log('Error ',err)); 
+        */
+       Promise.resolve(4)
+              .then(x=>{
+                if(x%2==0)
+                {
+                    throw new Error('Error it is even');
+                }
+                
+              },err=>{
+                return Promive.resolve(100);
+              })
+              .then(data=>console.log('Sucess ',data),err=>console.log('Error ',err));
+    </script>
+</html>

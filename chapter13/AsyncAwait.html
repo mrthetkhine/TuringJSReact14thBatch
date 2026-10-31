@@ -1,0 +1,38 @@
+<html>
+    <script>
+        
+        async function getData(url)
+        {
+            console.log('fired ',url);
+            let resp = await fetch(url);
+            let json = await resp.json();
+            console.log('json ',json);
+            return json;
+        }
+        //getData('https://jsonplaceholder.typicode.com/todos/1');
+        //getData('https://jsonplaceholder.typicode.com/users/1');
+        
+
+        async function fetchData()
+        {
+            console.log('fired ');
+            let todo = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+            let todoJSON = await todo.json();
+            console.log('fired2 ');
+            let user = await fetch('https://jsonplaceholder.typicode.com/users/1');
+            let userJSON = await user.json();
+            console.log('todo ',todoJSON);
+            console.log('user ',userJSON);
+        }
+        //fetchData();
+        async function fetchDataParallel()
+        {
+            console.log('fired ');
+            let all = await Promise.all([getData('https://jsonplaceholder.typicode.com/todos/1'),
+                                        getData('https://jsonplaceholder.typicode.com/users/1')]);
+            console.log('todo ',all[0]);
+            console.log('user ',all[1]);
+        }
+        fetchDataParallel();
+    </script>
+</html>

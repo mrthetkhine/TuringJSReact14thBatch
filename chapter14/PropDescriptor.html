@@ -1,0 +1,27 @@
+<html>
+    <script>
+        
+        let obj = {
+            name: "Jhon"
+        };
+        let another  ={
+            name: "",
+            address: ''
+        }
+        Object.defineProperty(obj,'age',{
+            value: 20,
+            enumerable: false,
+            configurable:false,
+            writable: false
+        })
+        delete obj.age;
+        obj.age = 400;
+        console.log('obj ',obj);
+        for(let key in obj)
+        {
+            console.log('Key ',key);
+        }
+        console.log('Object.getOwnPropertyDescriptor ',Object.getOwnPropertyDescriptor(obj,'age'));
+        console.log('Object.getOwnPropertyDescriptor ',Object.getOwnPropertyDescriptor({},'toString'));
+    </script>
+</html>

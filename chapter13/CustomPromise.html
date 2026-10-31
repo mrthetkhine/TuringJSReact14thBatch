@@ -1,0 +1,105 @@
+<html>
+    <script>
+        function delayDiv(a,b)
+        {
+            return new MyPromise((resolve,reject)=>{
+                setTimeout(()=>{
+                    console.log('fire after 3 seconds');
+                    if(isNaN(a) || isNaN(b))
+                    {
+                        return reject('A or b is NaN');
+                    }
+                    else
+                    {
+                        return resolve(a/b);
+                    }
+                },1000);
+            })
+            
+            
+        }
+        class MyPromise 
+        {
+            
+            handlers = [];
+            constructor(executor)
+            {
+                this.executor = executor;
+                //console.log('Executor ',executor);
+                this.executor(this.resolve.bind(this),this.reject.bind(this));
+            }
+            resolve(data)
+            {
+                //console.log('success ',data);
+                let handlers = this.handlers;
+                let success = true;
+                for(let i=0;i<handlers.length;i++)
+                {
+                    try
+                    {
+                        if(success)
+                        {
+                            data = handlers[i].onFulfilled(data);
+                        }
+                        else
+                        {
+                            data = handlers[i].onRejected(data);
+                        }
+                        success = true;
+                    }
+                    catch(e)
+                    {
+                        success = false;
+                    }
+                }
+                
+            }
+            reject(data)
+            {
+                //console.log('Reject ',data);
+                //this.then(undefined,err);
+                let handlers = this.handlers;
+                let success = false;
+                for(let i=0;i<handlers.length;i++)
+                {
+                    try
+                    {
+                        if(success)
+                        {
+                            data = handlers[i].onFulfilled(data);
+                        }
+                        else
+                        {
+                            //console.log('this case ',handlers[i].onRejected);
+                            data = handlers[i].onRejected(data);
+                        }
+                        success = true;
+                    }
+                    catch(e)
+                    {
+                        success = false;
+                    }
+                }
+            }
+            then(onFulfilled,onRejected)
+            {
+                this.handlers.push({
+                    onFulfilled:onFulfilled,
+                    onRejected:onRejected
+                })
+                return this;
+            }
+        }
+        /*
+        new MyPromise((resolve,reject)=>{
+            setTimeout(()=>{
+                console.log('Fire after 3 seconds');
+                reject(100);
+            },1000);
+        })
+        .then(data=>console.log('Sucess ',data),err=>console.log('Error=> ',err));
+        */ 
+       delayDiv(10,2)
+            .then(data=>console.log('Sucess ',data),err=>console.log('Error ',err));
+    </script>
+</html>
