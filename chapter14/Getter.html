@@ -1,0 +1,18 @@
+<html>
+    <script>
+        
+        
+        let obj ={
+            name: "Jhon"
+        };
+        let obj2 = Object.defineProperty(obj,'age',{
+            get()
+            {
+                return 20;
+            }
+            });
+        console.log('obj2 ',obj2.age);
+        obj2.age = 400;
+        console.log('obj2 ',obj2.age);
+    </script>
+</html>

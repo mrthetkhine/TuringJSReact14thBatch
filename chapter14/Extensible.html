@@ -1,0 +1,38 @@
+<html>
+    <script>
+        
+        let obj = {
+            name: "Jhon"
+        };
+        console.log('isExtensible ',Object.isExtensible(obj));
+        obj.age = 20;
+        obj.address = 'USA';
+        console.log('obj ',obj);
+        Object.preventExtensions(obj);
+        console.log('isExtensible ',Object.isExtensible(obj));
+
+        obj.another = 'another';
+        console.log('obj ',obj);
+        
+        Object.seal(obj);
+        delete obj.age;
+        console.log('obj ',obj);
+
+        console.log('isSealed ',Object.isSealed(obj));
+        Object.freeze(obj);
+        obj.age = 400;
+        console.log('obj ',obj);
+        console.log('isFrozen ',Object.isFrozen(obj));
+
+        let parent = {
+            name: "Jhon"
+        };
+        let child = Object.create(parent);
+        console.log('Prototype ',Object.getPrototypeOf(child));
+
+        let obj2 = {};
+        Object.setPrototypeOf(obj2,parent);
+        console.log('Prototype ',Object.getPrototypeOf(obj2));
+        console.log('obj2.name ',obj2.name);
+    </script>
+</html>

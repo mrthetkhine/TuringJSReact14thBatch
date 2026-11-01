@@ -1,0 +1,40 @@
+<html>
+    <body>
+        <button type="button" id="btnLoad">Load</button>
+    </body>
+    <script defer src="./lib2.js"></script>
+    <script async src="./lib.js"></script>
+    <script>
+        console.log('Another script fired');
+        //api();
+
+        function loadScript(src)
+        {
+            let script = document.createElement('script');
+            script.src = src;
+            document.body.appendChild(script);
+
+            return new Promise((resolve,reject)=>
+            {
+                script.onload = ()=>
+                {
+                    resolve();
+                };
+                script.onerror = ()=>
+                {
+                    reject();
+                };
+            });
+        }
+        document.getElementById('btnLoad').addEventListener('click',function()
+        {
+            console.log('Load button clicked');
+            loadScript('./lib3.js').then(()=>{
+                api3();
+            }).catch(()=>{
+                console.log('Error loading script');
+            });
+            
+        });
+    </script>
+</html>

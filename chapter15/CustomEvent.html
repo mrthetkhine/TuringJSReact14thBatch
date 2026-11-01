@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <button type="button" id="btnLoad">Load</button>
+        <button type="button" id="btnStart">Start</button>
+    </body>
+    <script>
+        document.getElementById('btnLoad').addEventListener('click',function(e){
+            console.log('Load button clicked ',e);
+        });
+       
+        document.addEventListener('customEvent',function(e){
+            console.log('customEvent triggered ',e);
+        });
+        document.getElementById('btnStart').addEventListener('click',function(e){
+            console.log('Start button clicked');
+            let event = new CustomEvent('customEvent');
+            document.dispatchEvent(event);
+        });
+        document.getElementById('btnLoad').dispatchEvent(new Event('click'));
+    </script>
+</html>

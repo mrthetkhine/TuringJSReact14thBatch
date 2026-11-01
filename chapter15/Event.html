@@ -1,0 +1,51 @@
+<html>
+    <body>
+        <div id="parent" onclick="console.log('click parent')"> Parent
+            <div id="child">
+                Child
+            </div>
+        </div>
+        <button type="button" id="btnRemove">Remove</button>
+    </body>
+    <script>
+        let parent =document.getElementById('parent');
+        parent.onclick = function(e){
+            console.log('onclick Parent clicked ',e);
+        }
+        parent.addEventListener('click',function(e){
+            console.log('Parent clicked ',e);
+            console.log('target ',e.target, ' currentTarget ',e.currentTarget);
+        },{
+            once :true,
+            //capture : true,
+        });
+        let handler2 = function(e){
+            console.log('Parent clicked 2 ',e);
+            
+        };
+        parent.addEventListener('click',handler2);
+
+        document.getElementById('btnRemove').addEventListener('click',function(e){
+            parent.removeEventListener('click',handler2);
+        });
+        document.getElementById('child').addEventListener('click',function(e){
+            console.log('Child clicked 1',e);
+            console.log('target ',e.target, ' currentTarget ',e.currentTarget);
+            //e.stopPropagation();
+            e.stopImmediatePropagation();
+        },{
+            //capture : true,
+        });
+        document.getElementById('child').addEventListener('click',function(e){
+            console.log('Child clicked 2',e);
+            //e.stopPropagation();
+        },{
+            //capture : true,
+        });
+
+        document.addEventListener('contextmenu',function(e){
+            console.log('Document rightclicked ',e);
+            e.preventDefault();
+        });
+    </script>
+</html>

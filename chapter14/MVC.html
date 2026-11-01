@@ -1,0 +1,30 @@
+<html>
+    <div>
+        <div>
+            Name <span id ="name"></span>
+            <br/>
+            Age <span id ="age"></span>
+        </div>
+        <button type="button" id="btnUpdate">Update</button>
+    </div>
+    <script>
+        
+        
+        let model = {
+            name: "Jhon",
+            age: 20
+        };
+        let mvcProxyHandler = {
+           
+            set(target, prop, value) {
+                console.log('Property ',prop,' is set to ',value);
+                target[prop] = value;
+                document.getElementById(prop).textContent = value;
+                return true;
+            }
+        };
+        let proxy = new Proxy(model, mvcProxyHandler);
+        proxy.name = "Smith";
+        proxy.age = 30;
+    </script>
+</html>

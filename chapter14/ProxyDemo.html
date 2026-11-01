@@ -1,0 +1,30 @@
+<html>
+    <script>
+        
+        
+        let obj ={
+            order()
+            {
+                console.log('Order business logic');
+            },
+            payment()
+            {
+                console.log('Payment business logic');
+            }
+        };
+        let logger = {
+            get(target,propKey,receiver)
+            {
+                
+                if(typeof target[propKey] ==='function')
+                {
+                    console.log('Method ',propKey , ' is called');
+                }
+                return target[propKey];
+            },
+        };
+        let proxiedObj = new Proxy(obj, logger);
+        proxiedObj.order();
+        proxiedObj.payment();
+    </script>
+</html>

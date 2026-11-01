@@ -23,5 +23,21 @@
         }
         console.log('Object.getOwnPropertyDescriptor ',Object.getOwnPropertyDescriptor(obj,'age'));
         console.log('Object.getOwnPropertyDescriptor ',Object.getOwnPropertyDescriptor({},'toString'));
+
+        let obj2 = Object.defineProperties({},{
+            x:{
+                 value: 20,
+                enumerable: false,
+                configurable:false,
+                writable: false
+            },
+            y:{
+                value: 30,
+                enumerable: true,
+                configurable:true,
+                writable: true
+            }
+        });
+        console.log('obj2 ',obj2);
     </script>
 </html>
