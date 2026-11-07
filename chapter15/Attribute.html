@@ -1,0 +1,57 @@
+<html>
+    <style>
+        .box1{
+            color: red;
+        }
+        .box2
+        {
+            background:lightcyan;
+        }
+    </style>
+    <body>
+        
+        <div id="container" class="box1" color="red">
+            Container
+            <div>
+                Child of container
+            </div>
+        </div>
+        <button type="button" id="loadImage">Load</button>
+        <button type="button" id="btnRemove">Remove</button>
+        <table>
+            <tbody id="tableBody">
+                <tr data-row="1">
+                    <td>1</td>
+                    <td>2</td>
+                </tr>
+                <tr data-row="2">
+                    <td>3</td>
+                    <td>4</td>
+                </tr>
+            </tbody>
+            
+        </table>
+    </body>
+    <script>
+        // Select the first h1 element
+        let classlist = document.getElementById('container').classList;
+        console.log('class ',classlist);
+        document.getElementById('btnRemove')
+                .addEventListener('click',()=>{
+                    classlist.remove('box1');
+                    classlist.add('box2');
+                })
+        document.getElementById('loadImage')
+                .addEventListener('click',()=>{
+                    console.log('load image');
+                    let image = document.createElement('img');
+                    image.src="https://blog.logrocket.com/wp-content/uploads/2022/03/how-to-use-type-guards-typescript.png";
+                    document.body.appendChild(image);
+                });
+        document.getElementById('tableBody')
+                .addEventListener('click',function(e){
+                    let row = e.target.closest('tr');
+                    console.log("Table row click ",row, ' row ',row.dataset.row);
+                });
+    </script>
+</html>

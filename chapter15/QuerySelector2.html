@@ -1,0 +1,34 @@
+<html>
+    <body>
+        <h1 class="box">Hello h1</h1>
+        <h2>Hello h2</h2>
+        <h1>Another h1</h1>
+        <div id="container" class="box box2" name="name">
+            Container
+            <div>
+                Child 
+                <span>
+                    Decedent Span
+                </span>
+            </div>
+            <span>
+                Child Span
+            </span>
+        </div>
+        <span>Another</span>
+        <h1>Third h1</h1>
+        <p>Paragraph</p>
+         <div  class="box">
+            Container 2
+        </div>
+        Name <input type="text">
+        <br/>
+        <input type="button">Ok</input>
+    </body>
+    <script>
+        // Select the first h1 element
+        console.log('document.getElementsByName ',document.getElementsByName('name'));
+        console.log('document.getElementsByTagName ',document.getElementsByTagName('h1'));
+        console.log('document.getElementsByClassName box ',document.getElementsByClassName('box'));
+    </script>
+</html>

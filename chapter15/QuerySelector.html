@@ -1,8 +1,29 @@
 <html>
     <body>
-        <h1>Hello h1</h1>
+        <h1 class="box">Hello h1</h1>
         <h2>Hello h2</h2>
         <h1>Another h1</h1>
+        <div id="container" class="box box2">
+            Container
+            <div>
+                Child 
+                <span>
+                    Decedent Span
+                </span>
+            </div>
+            <span>
+                Child Span
+            </span>
+        </div>
+        <span>Another</span>
+        <h1>Third h1</h1>
+        <p>Paragraph</p>
+         <div  class="box">
+            Container 2
+        </div>
+        Name <input type="text">
+        <br/>
+        <input type="button">Ok</input>
     </body>
     <script>
         // Select the first h1 element
@@ -12,5 +33,19 @@
         // Select all h1 elements
         let allH1 = document.querySelectorAll('h1');
         console.log(allH1);
+
+        console.log('selector #container ',document.querySelector('#container'));
+        console.log('selector .box ',document.querySelectorAll('.box'))
+        console.log('selector div.box ',document.querySelectorAll('div.box'));
+        console.log('selector .box.box2 ',document.querySelectorAll('.box.box2'));
+        console.log('selector input[type="text"] ',document.querySelectorAll('input[type="text"]'));
+
+        console.log('selector #container span ',document.querySelectorAll('#container span'));
+        console.log('selector #container >span ',document.querySelectorAll('#container >span'));
+        console.log('selector body >h1 ',document.querySelectorAll('body >h1'));
+        console.log('selector body >h1:first-child ',document.querySelectorAll('body >h1:first-child'));
+
+        console.log('selector div+h1 ',document.querySelectorAll('div+h1'));
+        console.log('selector h2~p ',document.querySelectorAll('h2~p'));
     </script>
 </html>

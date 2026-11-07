@@ -1,0 +1,45 @@
+<html>
+    <style>
+       .box
+       {
+        height:7000px;
+       }
+    </style>
+    <body>
+        <button type="button" id="btnGo">Go</button>
+        <a href="#end">Go end</a>
+        <div id="container" class="box" color="red">
+            Container
+            <div>
+                Child of container
+            </div>
+        </div>
+        <h1 id="end">End</h1>
+        <button type="button" id="btnUpdate">Update</button>
+        
+    </body>
+    <script>
+        
+        document.getElementById('btnGo')
+                .addEventListener('click',()=>{
+                    let documentHeight = document.documentElement.offsetHeight; 
+                    let viewportHeight = window.innerHeight;
+                    let height = documentHeight - viewportHeight;
+                    let factor = height/10;
+                    /*
+                    for(let i=0;i<10;i++)
+                    {
+                        setTimeout(()=>{
+                            console.log('scroll');
+                            window.scrollBy(0,factor);
+                        },10+(100*i));
+                    }*/
+                   window.scrollTo({
+                    left:0,
+                    top:height,
+                    behavior:"smooth"
+                    });
+                });
+        
+    </script>
+</html>

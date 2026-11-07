@@ -1,0 +1,33 @@
+<html>
+    <body>
+        <h1 class="box">Hello h1</h1>
+        <h2>Hello h2</h2>
+        <h1>Another h1</h1>
+        <div id="container" class="box box2">
+            Container
+            <div>
+                Child of container
+            </div>
+        </div>
+        <button type="button" id="btnDuplicate">Duplicate</button>
+    </body>
+    <script>
+        // Select the first h1 element
+        
+        document.getElementById('btnDuplicate')
+                .addEventListener('click',function(){
+                    console.log('Duplicate button clicked');
+                    for(let i=0,len=document.getElementsByTagName('h1').length; i<len;i++)
+                    {
+                        let h1 = document.createElement('h1');
+                        h1.textContent = 'New h1';
+                       
+                        document.body.appendChild(h1);
+                        console.log('clone');
+                    }
+                });
+        let container = document.getElementById('container');        
+        console.log('parent Node ',container.parentNode);
+        console.log('child ',container.children);
+    </script>
+</html>

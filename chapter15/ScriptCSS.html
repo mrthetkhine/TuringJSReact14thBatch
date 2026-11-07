@@ -1,0 +1,34 @@
+<html>
+    <style>
+       
+    </style>
+    <body>
+        
+        <div id="container" class="box1" color="red">
+            Container
+            <div>
+                Child of container
+            </div>
+        </div>
+        <button type="button" id="btnUpdate">Update</button>
+        
+    </body>
+    <script>
+        
+        let container = document.getElementById('container');
+        document.getElementById('btnUpdate')
+                .addEventListener('click',()=>{
+                    let style = `
+                    
+                        background:lightcyan;
+                        color:blue;
+                    
+                    `;
+                    //container.setAttribute('style',style);
+                    //container.style.background = "lightcyan";
+                    //container.style.color = "blue";
+                    container.style.cssText = style;
+                })
+        
+    </script>
+</html>

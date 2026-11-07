@@ -1,0 +1,34 @@
+<html>
+    <style>
+       
+    </style>
+    <body>
+        
+        <div id="container" class="box1" color="red">
+            Container
+            <div>
+                Child of container
+            </div>
+        </div>
+        <button type="button" id="btnCreate">Create</button>
+        
+    </body>
+    <script>
+        
+        document.getElementById('btnCreate')
+                .addEventListener('click',()=>{
+                    let div = document.createElement('div');
+                    //div.textContent = '<h1>New div</h1>';
+                    //div.innerHTML = '<h1>New div</h1>';
+                    //container.outerHTML = '<h1>New div</h1>';
+                    div.innerText = '<h1>New div</h1>';
+                    //container.appendChild(div);
+                    //container.prepend(div);
+                    //container.after(div);
+                    //container.before(div);
+                    //container.replaceWith(div);
+                    container.remove();
+                })
+        
+    </script>
+</html>
