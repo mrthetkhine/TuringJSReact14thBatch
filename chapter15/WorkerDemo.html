@@ -1,0 +1,16 @@
+<html>
+    <body>
+    </body>
+    <script>
+        let worker = new Worker('my-worker.js');
+        worker.postMessage({
+            value: 5
+        });
+        setTimeout(()=>{
+            console.log('fired');
+        },0);
+        worker.addEventListener('message',function(e){
+            console.log('Message received in main thread',e);
+        });
+    </script>
+</html>

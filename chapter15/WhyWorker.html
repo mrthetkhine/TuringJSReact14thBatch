@@ -1,0 +1,16 @@
+<html>
+    <body>
+    </body>
+    <script>
+        function delay(ms)
+        {
+            let now = new Date().getTime();
+            while(new Date().getTime() < now + ms);
+        }
+        setTimeout(function(){
+            console.log('Hello');
+        },0);
+        delay(2000);
+        console.log('World');
+    </script>
+</html>

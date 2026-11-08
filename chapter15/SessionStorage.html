@@ -1,0 +1,22 @@
+<html>
+    <body>
+    </body>
+    <script>
+        let user = {
+            name : 'John',
+            age : 30
+        }
+        let str = JSON.stringify(user);
+        sessionStorage.setItem('user',str);
+        let name = sessionStorage.username;
+        if(!name)
+        {
+            name = window.prompt('Enter your name');
+            sessionStorage.username = name;
+        }
+        window.addEventListener('storage',function(e){
+            console.log('Storage changed ',e);
+        });
+        
+    </script>
+</html>

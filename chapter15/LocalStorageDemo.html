@@ -1,0 +1,19 @@
+<html>
+    <body>
+    </body>
+    <script>
+        
+        let user = {
+            name : 'John',
+            age : 30
+        }
+        let str = JSON.stringify(user);
+        localStorage.setItem('user',str);
+        let name = localStorage.username;
+        if(!name)
+        {
+            name = window.prompt('Enter your name');
+            localStorage.username = name;
+        }
+    </script>
+</html>

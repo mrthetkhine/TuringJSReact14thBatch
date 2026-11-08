@@ -1,0 +1,16 @@
+<html>
+    <body>
+    </body>
+    <script>
+        let str = localStorage.getItem('user');
+        let user = JSON.parse(str);
+        console.log('User ',user);
+        let name = localStorage.username;
+        if(!name)
+        {
+            name = window.prompt('Enter your name');
+            localStorage.username = name;
+        }
+        console.log('Name ',name)
+    </script>
+</html>
