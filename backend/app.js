@@ -4,16 +4,22 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var customerLogger = require('./middleware/logger');
+const mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var demoRouter = require('./routes/demo');
+var todoRouter =require('./routes/todos');
 var app = express();
 
+mongoose.connect('mongodb://127.0.0.1:27017/react_14batch')
+    .then(data=>console.log('Successfully connect',err=>{
+        console.log('Cannot connect to MongoDB!');
+    }));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 //console.log('customLogger ',customerLogger);
-app.use(customerLogger);
+//app.use(customerLogger);
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -22,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use('/api/todos', todoRouter);
 app.use('/demo', demoRouter);
 
 // catch 404 and forward to error handler

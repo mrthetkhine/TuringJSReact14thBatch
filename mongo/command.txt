@@ -213,11 +213,11 @@ db.todos.find({
 })
 
 db.todos.updateOne(
-  {_id: ObjectId('6a1d9959add1d586280e3d2a')},
+  {_id: ObjectId('6af9901cdaed0c7fd46b18d2')},
   [
      { $set: { "title": "Todo 1 updated"} },
      { $unset:["user"]}
- ]
+  ]
 )
 
 db.todos.updateMany(
@@ -231,16 +231,7 @@ db.todos.updateMany(
 )
 
 db.todos.deleteOne({
-    _id:ObjectId('6a1d99cfadd1d586280e3d2c')
+    _id:ObjectId('6af9908cdaed0c7fd46b18d4')
 })
 
-db.reviews.aggregate([
-  {
-    $lookup: {
-      from: "movies",
-      localField: "movie",
-      foreignField: "_id",
-      as: "movie_obj"
-    }
-  }
-])
+db.todos.find({})
