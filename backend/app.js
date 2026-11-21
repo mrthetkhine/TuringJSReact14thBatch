@@ -9,6 +9,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var demoRouter = require('./routes/demo');
 var todoRouter =require('./routes/todos');
+var movieRouter = require('./routes/movie');
+var reviewRouter = require('./routes/review');
 var app = express();
 
 mongoose.connect('mongodb://127.0.0.1:27017/react_14batch')
@@ -29,6 +31,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/todos', todoRouter);
+app.use('/api/movies',movieRouter);
+app.use('/api/reviews', reviewRouter);
 app.use('/demo', demoRouter);
 
 // catch 404 and forward to error handler
